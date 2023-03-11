@@ -1,0 +1,64 @@
+[versions]
+androidx_navigation = "2.5.3"
+androidx_room = "2.5.0"
+fastadapter = "5.7.0"
+google_services_plugin = "4.3.14"
+hilt = "2.44"
+kotlin = "1.8.0"
+mapstruct = "1.5.2.Final"
+moshi = "1.14.0"
+okhttp = "4.10.0"
+retrofit = "2.9.0"
+
+[libraries]
+android_gradle_plugin = { module = "com.android.tools.build:gradle", version = "7.4.0" }
+androidx_constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
+androidx_fragment = { module = "androidx.fragment:fragment", version = "1.5.5" }
+androidx_navigation_fragment_ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx_navigation" }
+androidx_navigation_gradle_plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx_navigation" }
+androidx_navigation_ui_ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx_navigation" }
+androidx_room_compiler = { module = "androidx.room:room-compiler", version.ref = "androidx_room" }
+androidx_room_ktx = { module = "androidx.room:room-ktx", version.ref = "androidx_room" }
+androidx_room_runtime = { module = "androidx.room:room-runtime", version.ref = "androidx_room" }
+androidx_room_rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "androidx_room" }
+fastadapter = { module = "com.mikepenz:fastadapter", version.ref = "fastadapter" }
+fastadapter_binding = { module = "com.mikepenz:fastadapter-extensions-binding", version.ref = "fastadapter" }
+fastadapter_utils = { module = "com.mikepenz:fastadapter-extensions-utils", version.ref = "fastadapter" }
+google_ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version = "1.8.0-1.0.8" }
+google_material = { module = "com.google.android.material:material", version = "1.7.0" }
+google_services_gradle_plugin = { module = "com.google.gms:google-services", version.ref = "google_services_plugin" }
+hilt_android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt_compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt_gradle_plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin_stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinx_coroutines_rx3 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx3", version = "1.6.4" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct_processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+network_moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+network_moshi_codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+network_okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+network_okhttp_logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+network_retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+network_retrofit_moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+network_retrofit_rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofit" }
+rx_android = { module = "io.reactivex.rxjava3:rxandroid", version = "3.0.2" }
+rx_binding = { module = "com.jakewharton.rxbinding4:rxbinding", version = "4.0.0" }
+rx_java = { module = "io.reactivex.rxjava3:rxjava", version = "3.1.6" }
+rx_kotlin = { module = "io.reactivex.rxjava3:rxkotlin", version = "3.0.1" }
+timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
+windly_limbo_mapstruct = { module = "dev.windly:limbo-mapstruct", version = "5.0.2" }
+windly_versioning_gradle_plugin = { module = "co.windly:versioning-gradle-plugin", version = "1.1.2" }
+
+[bundles]
+gradle_plugins = [
+    "android.gradle.plugin",
+    "androidx.navigation.gradle.plugin",
+    "google.ksp",
+    "google.services.gradle.plugin",
+    "hilt.gradle.plugin",
+    "kotlin.gradle.plugin",
+    "windly.versioning.gradle.plugin"
+]
+androidx_room = ["androidx.room.ktx", "androidx.room.runtime", "androidx.room.rxjava3"]
+network_retrofit = ["network.retrofit", "network.retrofit.moshi"]

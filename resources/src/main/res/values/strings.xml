@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment />
+
+  <!-- TODO: Add string resources here. -->
+
+  <string name="hello">Hello world!</string>
+
+</resources>

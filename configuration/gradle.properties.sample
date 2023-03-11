@@ -1,0 +1,5 @@
+# Defines API integration details for debug mode.
+DebugUrl="https://template.windly.dev"
+
+# Defines API integration details for release mode.
+ReleaseUrl="https://dev.template.windly.dev"

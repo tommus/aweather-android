@@ -3,7 +3,7 @@ package dev.windly.aweather.ci
 object Application {
   const val packageName = "dev.windly.aweather"
 
-  private const val applicationName = "Template"
+  private const val applicationName = "Aweather"
   private const val debugNameSuffix = "Development"
 
   object Debug {

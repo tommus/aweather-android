@@ -1,6 +1,8 @@
 package dev.windly.aweather.presentation.search
 
 import dagger.hilt.android.scopes.FragmentScoped
+import dev.windly.aweather.search.SearchCriteria
+import dev.windly.aweather.search.SearchRepository
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.FlowableProcessor
@@ -9,7 +11,9 @@ import java.util.concurrent.TimeUnit.MILLISECONDS
 import javax.inject.Inject
 
 @FragmentScoped
-class SearchLocation @Inject constructor() {
+class SearchLocation @Inject constructor(
+  private val search: SearchRepository
+) {
 
   private companion object {
 
@@ -21,20 +25,14 @@ class SearchLocation @Inject constructor() {
   }
 
   /**
-   * Immutable data holder for the search criteria.
-   */
-  data class SearchCriteria(
-    val input: String
-  )
-
-  /**
    * Immutable data holder for the search results.
    *
    * Additionally it contains [SearchCriteria] so it's possible
    * for example to highlight the original search phrase.
    */
   data class SearchResults(
-    val criteria: SearchCriteria
+    val criteria: SearchCriteria,
+    val locations: List<Any>,
   )
 
   private val input: FlowableProcessor<String> =
@@ -53,14 +51,26 @@ class SearchLocation @Inject constructor() {
   private fun criteria(): Flowable<SearchCriteria> =
     input.map(::SearchCriteria).debounce(DELAY, MILLISECONDS)
 
-  // TODO: 12.03.2023 Implement saerch method returning search results.
+  /**
+   * Searches for the locations that matches the search criteria.
+   */
+  private fun searchLocations(criteria: SearchCriteria): Flowable<List<Any>> =
+    search.execute(criteria)
 
-  // TODO: 12.03.2023 Combine search criteria with results.
+  /**
+   * Searches for all the results that matches the search criteria.
+   */
+  private fun foundLocations(): Flowable<List<Any>> =
+    criteria().switchMap(::searchLocations)
 
   /**
    * Emits a filtered [SearchResults] for the provided [SearchCriteria].
    */
   fun results(): Flowable<SearchResults> =
-    criteria().map(::SearchResults)
-      .subscribeOn(Schedulers.computation())
+    Flowable
+      .combineLatest(
+        criteria(),
+        foundLocations(),
+        ::SearchResults
+      ).subscribeOn(Schedulers.computation())
 }

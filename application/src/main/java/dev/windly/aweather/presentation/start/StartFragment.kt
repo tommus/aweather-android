@@ -54,7 +54,7 @@ class StartFragment : BaseFragment<FragmentStartBinding, StartViewModel>() {
     when (event) {
 
       // TODO: Consume navigation event.
-      is StartNavigationEvent -> Unit
+      is StartEvent -> Unit
     }
   }
 }

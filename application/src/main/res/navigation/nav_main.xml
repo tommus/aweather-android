@@ -10,6 +10,28 @@
   <fragment
     android:id="@+id/start_fragment"
     android:name="dev.windly.aweather.presentation.start.StartFragment"
-    tools:layout="@layout/fragment_start" />
+    tools:layout="@layout/fragment_start">
+
+    <action
+      android:id="@+id/actionSearch"
+      app:destination="@+id/search_fragment" />
+
+  </fragment>
+
+  <fragment
+    android:id="@+id/search_fragment"
+    android:name="dev.windly.aweather.presentation.search.SearchFragment"
+    tools:layout="@layout/fragment_search">
+
+    <action
+      android:id="@+id/actionForecast"
+      app:destination="@+id/forecast_fragment" />
+
+  </fragment>
+
+  <fragment
+    android:id="@+id/forecast_fragment"
+    android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
+    tools:layout="@layout/fragment_forecast" />
 
 </navigation>

@@ -7,9 +7,8 @@ data class StartViewState(
   companion object {
 
     /**
-     * Creates a default representation of [start view state][StartViewState].
+     * A default representation of a [StartViewState].
      */
-    fun empty(): StartViewState =
-      StartViewState(data = "")
+    val Empty = StartViewState(data = "")
   }
 }

@@ -21,6 +21,10 @@ class StartViewModel @Inject constructor(
   resources: StartResources
 ) : ViewModel(), DefaultLifecycleObserver {
 
+  // TODO: 12.03.2023
+  //  Get rid of coroutines / channels / flows as Empik is more
+  //  font of reactive extensions.
+
   private val navigationChannel: Channel<NavigationEvent> =
     Channel()
 
@@ -36,6 +40,6 @@ class StartViewModel @Inject constructor(
       .stateIn(
         scope = viewModelScope,
         started = SharingStarted.Eagerly,
-        initialValue = StartViewState.empty()
+        initialValue = StartViewState.Empty
       )
 }

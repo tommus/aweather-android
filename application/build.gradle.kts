@@ -98,6 +98,7 @@ dependencies {
   implementation(project(":base:language"))
   implementation(project(":base:mvvm"))
   implementation(project(":configuration"))
+  implementation(project(":feature:search"))
   implementation(project(":resources"))
 
   implementation(libs.androidx.constraintlayout)

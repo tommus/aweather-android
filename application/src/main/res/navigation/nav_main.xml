@@ -12,4 +12,9 @@
     android:name="dev.windly.aweather.presentation.start.StartFragment"
     tools:layout="@layout/fragment_start" />
 
+  <fragment
+    android:id="@+id/forecast_fragment"
+    android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
+    tools:layout="@layout/fragment_forecast" />
+
 </navigation>

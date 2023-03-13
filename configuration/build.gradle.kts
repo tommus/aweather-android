@@ -1,6 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
-import Build_gradle.Key.URL
+import Build_gradle.Key.OPEN_WEATHER_API_URL
+import Build_gradle.Key.OPEN_WEATHER_APP_ID
 import dev.windly.aweather.ci.Application.packageName
 import dev.windly.aweather.ci.Build
 import dev.windly.aweather.ci.Build.Android
@@ -13,7 +14,8 @@ plugins {
 }
 
 object Key {
-  const val URL = "URL"
+  const val OPEN_WEATHER_API_URL = "OPEN_WEATHER_API_URL"
+  const val OPEN_WEATHER_APP_ID = "OPEN_WEATHER_APP_ID"
 }
 
 android {
@@ -35,14 +37,30 @@ android {
     debug {
       isMinifyEnabled = false
 
-      // TODO: Add injectable configuration.
-      buildConfigField("String", URL, findProperty("ApiUrlDebug").toString())
+      buildConfigField(
+        type = "String",
+        name = OPEN_WEATHER_API_URL,
+        value = findProperty("OpenWeatherApiUrlRelease").toString(),
+      )
+      buildConfigField(
+        type = "String",
+        name = OPEN_WEATHER_APP_ID,
+        value = findProperty("OpenWeatherAppIdDebug").toString(),
+      )
     }
     release {
       isMinifyEnabled = false
 
-      // TODO: Add injectable configuration.
-      buildConfigField("String", URL, findProperty("ApiUrlRelease").toString())
+      buildConfigField(
+        type = "String",
+        name = OPEN_WEATHER_API_URL,
+        value = findProperty("OpenWeatherApiUrlRelease").toString(),
+      )
+      buildConfigField(
+        type = "String",
+        name = OPEN_WEATHER_APP_ID,
+        value = findProperty("OpenWeatherAppIdRelease").toString(),
+      )
     }
   }
 }

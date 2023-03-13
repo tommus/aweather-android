@@ -31,6 +31,8 @@ dependencies {
 
   implementation(project(":base:language"))
   implementation(project(":base:android"))
+  implementation(project(":common:network"))
+  implementation(project(":configuration"))
 
   implementation(libs.bundles.androidx.room)
   kapt(libs.androidx.room.compiler)

@@ -1,5 +1,7 @@
 package dev.windly.aweather.search
 
+import dev.windly.aweather.search.domain.model.Location
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 
 /**
@@ -7,10 +9,15 @@ import io.reactivex.rxjava3.core.Flowable
  */
 interface SearchRepository {
 
-  // TODO: 13.03.2023 Use more specific return type.
+  /**
+   * Downloads all the [Location]s that also matches the
+   * [SearchCriteria].
+   */
+  fun downloadLocations(criteria: SearchCriteria): Completable
 
   /**
-   * Searches for all the locations that also matches the [SearchCriteria].
+   * Observes all persisted [Location]s that also matches the
+   * [SearchCriteria].
    */
-  fun execute(criteria: SearchCriteria): Flowable<List<Any>>
+  fun observeLocations(criteria: SearchCriteria): Flowable<List<Location>>
 }

@@ -25,6 +25,6 @@ interface GeocodingApi {
   fun getCoordinatesByLocationName(
     @Query("q") query: String,
     @Query("limit") limit: Int?,
-    @Query("AppId") appId: String,
+    @Query("appId") appId: String,
   ): Single<List<LocationDto>>
 }

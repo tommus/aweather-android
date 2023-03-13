@@ -41,5 +41,10 @@ dependencies {
   implementation(libs.mapstruct)
   kapt(libs.mapstruct.processor)
 
+  implementation(libs.moshi)
+  kapt(libs.moshi.codegen)
+
+  implementation(libs.bundles.retrofit)
+
   implementation(libs.windly.limbo.mapstruct)
 }

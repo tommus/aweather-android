@@ -68,7 +68,7 @@ object NetworkModule {
     Retrofit.Builder()
       .addCallAdapterFactory(adapterFactory)
       .addConverterFactory(converterFactory)
-      .baseUrl(configuration.serverUrl())
+      .baseUrl(configuration.openWeatherApiUrl())
       .client(client)
       .build()
 }

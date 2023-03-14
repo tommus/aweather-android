@@ -1,8 +1,9 @@
 package dev.windly.aweather.presentation.search
 
-import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dev.windly.aweather.search.SearchCriteria
 import dev.windly.aweather.search.SearchRepository
+import dev.windly.aweather.search.domain.model.Location
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.FlowableProcessor
@@ -10,7 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import javax.inject.Inject
 
-@FragmentScoped
+@ActivityRetainedScoped
 class SearchLocation @Inject constructor(
   private val search: SearchRepository
 ) {
@@ -22,6 +23,11 @@ class SearchLocation @Inject constructor(
      * be queried too often.
      */
     private const val DELAY = 100L /* ms */
+
+    /**
+     * Initially, search field is empty.
+     */
+    private const val QUERY = ""
   }
 
   /**
@@ -32,11 +38,11 @@ class SearchLocation @Inject constructor(
    */
   data class SearchResults(
     val criteria: SearchCriteria,
-    val locations: List<Any>,
+    val locations: List<Location>,
   )
 
   private val input: FlowableProcessor<String> =
-    BehaviorProcessor.createDefault("")
+    BehaviorProcessor.createDefault(QUERY)
 
   /**
    * Accepts new search input [value].
@@ -54,13 +60,14 @@ class SearchLocation @Inject constructor(
   /**
    * Searches for the locations that matches the search criteria.
    */
-  private fun searchLocations(criteria: SearchCriteria): Flowable<List<Any>> =
-    search.execute(criteria)
+  private fun searchLocations(criteria: SearchCriteria): Flowable<List<Location>> =
+    search.downloadLocations(criteria)
+      .andThen(search.observeLocations(criteria))
 
   /**
    * Searches for all the results that matches the search criteria.
    */
-  private fun foundLocations(): Flowable<List<Any>> =
+  private fun locations(): Flowable<List<Location>> =
     criteria().switchMap(::searchLocations)
 
   /**
@@ -68,9 +75,6 @@ class SearchLocation @Inject constructor(
    */
   fun results(): Flowable<SearchResults> =
     Flowable
-      .combineLatest(
-        criteria(),
-        foundLocations(),
-        ::SearchResults
-      ).subscribeOn(Schedulers.computation())
+      .combineLatest(criteria(), locations(), ::SearchResults)
+      .subscribeOn(Schedulers.computation())
 }

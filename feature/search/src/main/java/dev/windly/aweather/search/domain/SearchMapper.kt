@@ -1,8 +1,10 @@
 package dev.windly.aweather.search.domain
 
+import dev.windly.aweather.search.domain.model.Location
+import dev.windly.aweather.search.network.model.LocationDto
+import dev.windly.aweather.search.persistence.model.LocationEntity
+import dev.windly.limbo.mapstruct.CleanCodeMapper
 import org.mapstruct.Mapper
 
-// TODO: 13.03.2023 Implement the model mapper.
-
 @Mapper
-class SearchMapper
+interface SearchMapper : CleanCodeMapper<LocationDto, LocationEntity, Location>

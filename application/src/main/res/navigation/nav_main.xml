@@ -32,6 +32,18 @@
   <fragment
     android:id="@+id/forecast_fragment"
     android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
-    tools:layout="@layout/fragment_forecast" />
+    tools:layout="@layout/fragment_forecast">
+
+    <argument
+      android:name="latitude"
+      app:argType="float"
+      app:nullable="false" />
+
+    <argument
+      android:name="longitude"
+      app:argType="float"
+      app:nullable="false" />
+
+  </fragment>
 
 </navigation>

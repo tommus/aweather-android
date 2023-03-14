@@ -5,4 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ForecastViewModel @Inject constructor() : ViewModel()
+class ForecastViewModel @Inject constructor(
+  private val arguments: ForecastArguments
+) : ViewModel()

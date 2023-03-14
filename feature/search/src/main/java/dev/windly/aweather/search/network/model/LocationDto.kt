@@ -42,5 +42,5 @@ data class LocationDto(
    * State of the found location (where available).
    */
   @Json(name = "state")
-  val state: String? = null
+  val state: String? = null,
 )

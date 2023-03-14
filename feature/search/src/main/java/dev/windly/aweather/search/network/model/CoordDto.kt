@@ -16,5 +16,5 @@ data class CoordDto(
    * City geo location, latitude.
    */
   @Json(name = "lat")
-  val latitude: Double = 0.0
+  val latitude: Double = 0.0,
 )

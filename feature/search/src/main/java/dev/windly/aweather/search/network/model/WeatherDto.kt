@@ -30,5 +30,5 @@ data class WeatherDto(
    * Weather icon id.
    */
   @Json(name = "icon")
-  val icon: String = ""
+  val icon: String = "",
 )

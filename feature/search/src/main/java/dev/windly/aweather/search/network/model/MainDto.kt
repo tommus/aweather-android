@@ -63,5 +63,5 @@ data class MainDto(
    * Atmospheric pressure on the ground level in hPa.
    */
   @Json(name = "grnd_level")
-  val groundLevel: Int = 0
+  val groundLevel: Int = 0,
 )

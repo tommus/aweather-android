@@ -30,16 +30,69 @@ data class CurrentWeatherDto(
   @Json(name = "main")
   val main: MainDto = MainDto(),
 
-  // TODO: 13.03.2023 Extend DTO with other details:
-  //  - visibility
-  //  - wind
-  //  - clouds
-  //  - rain
-  //  - snow
-  //  - dt
-  //  - sys
-  //  - timezone
-  //  - id
-  //  - name
-  //  - cod
+  /**
+   * Visibility in meters. This value is coerced at 10.000 max.
+   */
+  @Json(name = "visibility")
+  val visibility: Int = 0,
+
+  /**
+   * Wind details.
+   */
+  @Json(name = "wind")
+  val wind: WindDto = WindDto(),
+
+  /**
+   * Cloudiness details.
+   */
+  @Json(name = "clouds")
+  val clouds: CloudsDto = CloudsDto(),
+
+  /**
+   * Rainfall details.
+   */
+  @Json(name = "rain")
+  val rain: FallDto = FallDto(),
+
+  /**
+   * Snowfall details.
+   */
+  @Json(name = "snow")
+  val snow: FallDto = FallDto(),
+
+  /**
+   * Time of data calculation. UTC UNIX timezone.
+   */
+  @Json(name = "dt")
+  val timestamp: Long = 0L,
+
+  /**
+   * System details.
+   */
+  @Json(name = "sys")
+  val system: SysDto = SysDto(),
+
+  /**
+   * Shift in seconds from UTC.
+   */
+  @Json(name = "timezone")
+  val timezone: Long = 0L,
+
+  /**
+   * City ID.
+   */
+  @Json(name = "id")
+  val id: Long = 0L,
+
+  /**
+   * City name.
+   */
+  @Json(name = "name")
+  val name: String = "",
+
+  /**
+   * Internal parameter.
+   */
+  @Json(name = "cod")
+  val cod: Int = 0,
 )

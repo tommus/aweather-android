@@ -7,7 +7,8 @@ include(":base:mvvm")
 include(":common:network")
 include(":common:persistence")
 include(":configuration")
-include(":feature:search")
+include(":feature:geocoding")
+include(":feature:weather")
 include(":resources")
 
 dependencyResolutionManagement {

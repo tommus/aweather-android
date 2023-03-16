@@ -2,25 +2,47 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:inner="http://schemas.android.com/apk/res-auto">
 
-  <data />
+  <data>
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+    <variable
+      name="viewModel"
+      type="dev.windly.aweather.presentation.forecast.ForecastViewModel" />
+
+  </data>
+
+  <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-      android:id="@+id/helloWorldView"
-      android:layout_width="wrap_content"
+    <include
+      layout="@layout/layout_forecast_header"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="TODO:\nForecast View"
-      android:textAlignment="center"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      inner:state="@{viewModel.state}" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Sys - sunrise. -->
+
+    <!-- Sys - sunset. -->
+
+    <!-- Wind - deg. -->
+
+    <!-- Wind - speed. -->
+
+    <!-- Rain - 1h. -->
+
+    <!-- Rain - 3h. -->
+
+    <!-- Main - feels like. -->
+
+    <!-- Visibility. -->
+
+    <!-- Main - Pressure. -->
+
+    <!-- Main - humidity. -->
+
+  </LinearLayout>
 
 </layout>

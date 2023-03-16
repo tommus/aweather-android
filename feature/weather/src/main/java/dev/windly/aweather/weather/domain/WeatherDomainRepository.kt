@@ -24,6 +24,7 @@ class WeatherDomainRepository @Inject constructor(
       .getCurrentWeather(
         latitude = criteria.latitude,
         longitude = criteria.longitude,
+        language = criteria.language,
         units = criteria.units,
         appId = configuration.openWeatherAppId(),
       )

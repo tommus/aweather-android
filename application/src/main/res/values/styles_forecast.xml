@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment />
+
+  <style name="Aweather.Forecast" />
+
+  <style name="Aweather.Forecast.Header" />
+
+  <style name="Aweather.Forecast.Header.Name">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">18sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Header.Temperature">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">52sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Header.Description">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
+</resources>

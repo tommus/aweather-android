@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="state"
+      type="dev.windly.aweather.presentation.forecast.ForecastState" />
+
+  </data>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+      style="@style/Aweather.Forecast.Header.Name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="0dp"
+      android:text="@{state.name}"
+      tools:text="Hyrule" />
+
+    <TextView
+      style="@style/Aweather.Forecast.Header.Temperature"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@{state.temperature}"
+      tools:text="-4°" />
+
+    <TextView
+      style="@style/Aweather.Forecast.Header.Description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@{state.description}"
+      tools:text="Shockstorm" />
+
+    <TextView
+      style="@style/Aweather.Forecast.Header.Description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="0dp"
+      android:text="@{state.range}"
+      tools:text="From -2° to 3°" />
+
+  </LinearLayout>
+
+</layout>

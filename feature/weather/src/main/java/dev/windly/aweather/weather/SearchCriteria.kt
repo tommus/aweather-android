@@ -7,5 +7,6 @@ package dev.windly.aweather.weather
 data class SearchCriteria(
   val latitude: Float,
   val longitude: Float,
-  @MeasurementUnit val units: String = MeasurementUnit.METRIC
+  @MeasurementLang val language: String,
+  @MeasurementUnit val units: String,
 )

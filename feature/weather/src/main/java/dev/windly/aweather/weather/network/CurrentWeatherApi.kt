@@ -1,5 +1,6 @@
 package dev.windly.aweather.weather.network
 
+import dev.windly.aweather.weather.MeasurementLang
 import dev.windly.aweather.weather.MeasurementUnit
 import dev.windly.aweather.weather.network.model.CurrentWeatherDto
 import io.reactivex.rxjava3.core.Single
@@ -25,6 +26,7 @@ interface CurrentWeatherApi {
   fun getCurrentWeather(
     @Query("lat") latitude: Float,
     @Query("lon") longitude: Float,
+    @Query("lang") @MeasurementLang language: String,
     @Query("units") @MeasurementUnit units: String,
     @Query("appId") appId: String,
   ): Single<CurrentWeatherDto>

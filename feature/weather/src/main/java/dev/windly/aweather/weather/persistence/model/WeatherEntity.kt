@@ -1,9 +1,13 @@
 package dev.windly.aweather.weather.persistence.model
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class WeatherEmbedded(
+@Entity(tableName = "weather_descriptions")
+data class WeatherEntity(
 
+  @PrimaryKey
   @ColumnInfo(name = "id")
   var id: Long = 0L,
 
@@ -15,4 +19,7 @@ data class WeatherEmbedded(
 
   @ColumnInfo(name = "icon")
   var icon: String = "",
+
+  @ColumnInfo(name = "currentId")
+  var currentId: Long = 0L,
 )

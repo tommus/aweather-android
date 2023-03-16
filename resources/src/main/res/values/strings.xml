@@ -9,6 +9,7 @@
   <string name="hello">Hello world!</string>
 
   <string name="degree">%d°</string>
+  <string name="description_placeholder">No description</string>
   <string name="range">From %d° to %d°</string>
 
 </resources>

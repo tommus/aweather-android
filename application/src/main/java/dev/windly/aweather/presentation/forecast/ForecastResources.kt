@@ -37,4 +37,11 @@ class ForecastResources @Inject constructor(
 
     return context.getString(R.string.range, min, max)
   }
+
+  /**
+   * Returns a placeholder that can be used in case of no additional forecast
+   * description is provided by API.
+   */
+  fun descriptionPlaceholder(): CharSequence =
+    context.getString(R.string.description_placeholder)
 }

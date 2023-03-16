@@ -24,8 +24,21 @@ class ForecastStateFactory @Inject constructor(
   private fun temperatureFor(forecast: CurrentWeather): CharSequence =
     resources.temperature(forecast)
 
-  private fun descriptionFor(forecast: CurrentWeather): CharSequence =
-    "to be implemented".replaceFirstChar { it.uppercase() }
+  private fun descriptionFor(forecast: CurrentWeather): CharSequence {
+
+    // Documentation of [CurrentWeather.weather] is insufficient. It
+    // does not shed any additional light why it's a collection and which
+    // description is the most relevant.
+    //
+    // Thus, I've decided to arbitrary pick the very first one.
+
+    val weather = forecast.weather.firstOrNull()
+
+    val description = weather?.description
+      ?: resources.descriptionPlaceholder().toString()
+
+    return description.replaceFirstChar { it.uppercase() }
+  }
 
   private fun rangeFor(forecast: CurrentWeather): CharSequence =
     resources.range(forecast)

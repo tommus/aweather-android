@@ -11,19 +11,19 @@
   <style name="Aweather.Forecast.Header.Name">
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
-    <item name="android:textSize">18sp</item>
+    <item name="android:textSize">24sp</item>
   </style>
 
   <style name="Aweather.Forecast.Header.Temperature">
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
-    <item name="android:textSize">52sp</item>
+    <item name="android:textSize">92sp</item>
   </style>
 
   <style name="Aweather.Forecast.Header.Description">
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">16sp</item>
   </style>
 
 </resources>

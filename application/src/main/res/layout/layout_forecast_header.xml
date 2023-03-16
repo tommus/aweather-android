@@ -16,15 +16,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp">
 
     <TextView
       style="@style/Aweather.Forecast.Header.Name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:layout_marginBottom="0dp"
       android:text="@{state.name}"
       tools:text="Hyrule" />
 

@@ -1,5 +1,6 @@
 package dev.windly.aweather.weather.network
 
+import dev.windly.aweather.weather.MeasurementUnit
 import dev.windly.aweather.weather.network.model.CurrentWeatherDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
@@ -22,9 +23,9 @@ interface CurrentWeatherApi {
    */
   @GET("data/2.5/weather")
   fun getCurrentWeather(
-    @Query("lat") latitude: Double,
-    @Query("long") longitude: Double,
-    @Query("units") units: String,
+    @Query("lat") latitude: Float,
+    @Query("lon") longitude: Float,
+    @Query("units") @MeasurementUnit units: String,
     @Query("appId") appId: String,
   ): Single<CurrentWeatherDto>
 }

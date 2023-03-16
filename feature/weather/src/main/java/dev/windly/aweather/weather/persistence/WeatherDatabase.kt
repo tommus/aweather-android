@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import dev.windly.aweather.weather.persistence.model.CurrentWeatherEntity
 
 @Database(
-  version = 1,
+  version = 2,
   exportSchema = false,
   entities = [
     CurrentWeatherEntity::class,

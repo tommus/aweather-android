@@ -1,5 +1,7 @@
 package dev.windly.aweather.presentation.forecast
 
+import android.os.Bundle
+import android.view.View
 import androidx.navigation.navGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.windly.aweather.R
@@ -17,5 +19,10 @@ class ForecastFragment : BaseFragment<FragmentForecastBinding, ForecastViewModel
 
   override fun bindView(binding: FragmentForecastBinding) {
     // No-op.
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    lifecycle.addObserver(viewModel)
   }
 }

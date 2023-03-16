@@ -16,7 +16,7 @@ data class CurrentWeatherDto(
    * Weather condition information.
    */
   @Json(name = "weather")
-  val weather: WeatherDto = WeatherDto(),
+  val weather: List<WeatherDto> = emptyList(),
 
   /**
    * Internal parameter.

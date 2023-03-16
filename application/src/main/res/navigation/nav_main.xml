@@ -5,7 +5,9 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_main"
-  app:startDestination="@id/start_fragment">
+  app:startDestination="@id/forecast_fragment">
+
+  <!-- TODO: Restore start fragment as start destination once finished debugging. -->
 
   <fragment
     android:id="@+id/start_fragment"
@@ -34,13 +36,17 @@
     android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
     tools:layout="@layout/fragment_forecast">
 
+    <!-- TODO: Remove default values once UI finished. -->
+
     <argument
       android:name="latitude"
+      android:defaultValue="53.0102721"
       app:argType="float"
       app:nullable="false" />
 
     <argument
       android:name="longitude"
+      android:defaultValue="18.6048094"
       app:argType="float"
       app:nullable="false" />
 

@@ -120,6 +120,16 @@ class ForecastResources @Inject constructor(
     return context.getString(R.string.visibility_distance, distance)
   }
 
+  /**
+   * Returns a text representation of feels like temperature.
+   */
+  fun feelsLike(forecast: CurrentWeather): CharSequence {
+
+    val rounded = forecast.main.feelsLike.roundToInt()
+
+    return context.getString(R.string.degree, rounded)
+  }
+
   private fun kph(): CharSequence = context.getString(R.string.kph)
   private fun mph(): CharSequence = context.getString(R.string.mph)
 }

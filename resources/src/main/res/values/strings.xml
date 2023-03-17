@@ -8,6 +8,7 @@
 
   <string name="degree">%d°</string>
   <string name="description_placeholder">No description</string>
+  <string name="feels_like">Feels like</string>
   <string name="hpa">%d hPa</string>
   <string name="in_gusts_to">In gusts up to %d %s</string>
   <string name="kph">kph</string>

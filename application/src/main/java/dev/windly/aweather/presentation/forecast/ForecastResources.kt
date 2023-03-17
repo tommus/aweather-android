@@ -63,4 +63,14 @@ class ForecastResources @Inject constructor(
 
     return context.getString(R.string.sunset, text)
   }
+
+  /**
+   * Returns a string representation of an atmospheric pressure.
+   */
+  fun pressure(forecast: CurrentWeather): CharSequence {
+
+    val pressure = forecast.main.pressure
+
+    return context.getString(R.string.hpa, pressure)
+  }
 }

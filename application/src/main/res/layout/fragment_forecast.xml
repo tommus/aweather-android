@@ -29,6 +29,12 @@
       android:layout_height="wrap_content"
       app:state="@{viewModel.state}" />
 
+    <include
+      layout="@layout/layout_pressure"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:state="@{viewModel.state}" />
+
     <!-- Wind - deg. -->
 
     <!-- Wind - speed. -->

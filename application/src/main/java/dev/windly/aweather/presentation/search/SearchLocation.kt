@@ -1,9 +1,9 @@
 package dev.windly.aweather.presentation.search
 
 import dagger.hilt.android.scopes.ActivityRetainedScoped
-import dev.windly.aweather.search.SearchCriteria
-import dev.windly.aweather.search.SearchRepository
-import dev.windly.aweather.search.domain.model.Location
+import dev.windly.aweather.geocoding.GeocodingRepository
+import dev.windly.aweather.geocoding.SearchCriteria
+import dev.windly.aweather.geocoding.domain.model.Location
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.FlowableProcessor
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @ActivityRetainedScoped
 class SearchLocation @Inject constructor(
-  private val search: SearchRepository
+  private val search: GeocodingRepository
 ) {
 
   private companion object {

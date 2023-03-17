@@ -31,12 +31,15 @@ class CalculateDewPoint @Inject constructor() {
    *
    * @see <a href="https://en.wikipedia.org/wiki/Dew_point">Dew point</a>
    */
-  operator fun invoke(temperature: Float, humidity: Int): Int {
+  operator fun invoke(temperature: Float, humidity: Int): Int =
+    precise(temperature, humidity).roundToInt()
+
+  private fun precise(temperature: Float, humidity: Int): Float {
 
     val root = (humidity / 100.0f).pow(HUMIDITY_ROOT)
     val ax = DEW_CONST + 0.9f * temperature
     val bx = 0.1f * temperature
 
-    return (root * ax + bx - DEW_CONST).roundToInt()
+    return root * ax + bx - DEW_CONST
   }
 }

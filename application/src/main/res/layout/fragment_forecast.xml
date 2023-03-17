@@ -57,15 +57,15 @@
         android:layout_height="wrap_content"
         app:state="@{viewModel.state}" />
 
+      <include
+        layout="@layout/layout_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
+
       <!-- Rain - 1h. -->
 
       <!-- Rain - 3h. -->
-
-      <!-- Main - feels like. -->
-
-      <!-- Main - Pressure. -->
-
-      <!-- Main - humidity. -->
 
     </LinearLayout>
 

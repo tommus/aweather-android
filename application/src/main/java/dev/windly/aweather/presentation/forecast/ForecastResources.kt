@@ -6,6 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.windly.aweather.resources.R
 import dev.windly.aweather.time.DateTimeFormat
 import dev.windly.aweather.weather.domain.model.CurrentWeather
+import dev.windly.aweather.weather.utility.CalculateDewPoint
 import javax.inject.Inject
 import kotlin.math.ceil
 import kotlin.math.roundToInt
@@ -13,6 +14,7 @@ import kotlin.math.roundToInt
 @Reusable
 class ForecastResources @Inject constructor(
   @ApplicationContext private val context: Context,
+  private val calculateDewPoint: CalculateDewPoint,
   private val format: DateTimeFormat,
 ) {
 
@@ -128,6 +130,28 @@ class ForecastResources @Inject constructor(
     val rounded = forecast.main.feelsLike.roundToInt()
 
     return context.getString(R.string.degree, rounded)
+  }
+
+  /**
+   * Returns a text representation of humidity.
+   */
+  fun humidity(forecast: CurrentWeather): CharSequence {
+
+    val humidity = forecast.main.humidity
+
+    return context.getString(R.string.humidity_percentage, humidity)
+  }
+
+  /**
+   * Returns a text representation of calculated dew point.
+   */
+  fun dewPoint(forecast: CurrentWeather): CharSequence {
+
+    val temperature = forecast.main.temperature
+    val humidity = forecast.main.humidity
+    val dewPoint = calculateDewPoint(temperature, humidity)
+
+    return context.getString(R.string.dew_point_at, dewPoint)
   }
 
   private fun kph(): CharSequence = context.getString(R.string.kph)

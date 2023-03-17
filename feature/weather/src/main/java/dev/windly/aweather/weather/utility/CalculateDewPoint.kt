@@ -2,12 +2,11 @@ package dev.windly.aweather.weather.utility
 
 import dagger.Reusable
 import javax.inject.Inject
-import kotlin.math.ceil
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
 @Reusable
-class DewPointCalculator @Inject constructor() {
+class CalculateDewPoint @Inject constructor() {
 
   private companion object {
 
@@ -32,14 +31,12 @@ class DewPointCalculator @Inject constructor() {
    *
    * @see <a href="https://en.wikipedia.org/wiki/Dew_point">Dew point</a>
    */
-  fun calculate(temperature: Int, humidity: Int): Int {
+  operator fun invoke(temperature: Float, humidity: Int): Int {
 
     val root = (humidity / 100.0f).pow(HUMIDITY_ROOT)
     val ax = DEW_CONST + 0.9f * temperature
     val bx = 0.1f * temperature
 
-    val dew = root * ax + bx + DEW_CONST
-
-    return ceil(dew).roundToInt()
+    return (root * ax + bx - DEW_CONST).roundToInt()
   }
 }

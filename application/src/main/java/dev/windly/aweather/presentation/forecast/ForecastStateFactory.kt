@@ -25,6 +25,8 @@ class ForecastStateFactory @Inject constructor(
       gusts = gustsFor(forecast),
       visibility = visibilityFor(forecast),
       feelsLike = feelsLikeFor(forecast),
+      humidity = humidityFor(forecast),
+      dewPoint = dewPointFor(forecast),
       loading = loading,
     )
 
@@ -72,4 +74,10 @@ class ForecastStateFactory @Inject constructor(
 
   private fun feelsLikeFor(forecast: CurrentWeather): CharSequence =
     resources.feelsLike(forecast)
+
+  private fun humidityFor(forecast: CurrentWeather): CharSequence =
+    resources.humidity(forecast)
+
+  private fun dewPointFor(forecast: CurrentWeather): CharSequence =
+    resources.dewPoint(forecast)
 }

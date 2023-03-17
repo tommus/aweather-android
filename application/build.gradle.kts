@@ -98,6 +98,8 @@ dependencies {
   implementation(project(":base:language"))
   implementation(project(":base:mvvm"))
   implementation(project(":configuration"))
+  implementation(project(":feature:geocoding"))
+  implementation(project(":feature:weather"))
   implementation(project(":resources"))
 
   implementation(libs.androidx.constraintlayout)
@@ -108,8 +110,8 @@ dependencies {
 
   implementation(libs.google.material)
 
-  implementation(libs.hilt.android)
-  kapt(libs.hilt.compiler)
+  implementation(libs.dagger.hilt.android)
+  kapt(libs.dagger.hilt.compiler)
 
   implementation(libs.kotlinx.coroutines.rx3)
 

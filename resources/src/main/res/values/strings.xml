@@ -4,8 +4,15 @@
 
   <eat-comment />
 
-  <!-- TODO: Add string resources here. -->
-
   <string name="hello">Hello world!</string>
+
+  <string name="degree">%d°</string>
+  <string name="description_placeholder">No description</string>
+  <string name="hpa">%d hPa</string>
+  <string name="pressure">Pressure</string>
+  <string name="range">From %d° to %d°</string>
+  <string name="on_sea_level">On a sea level</string>
+  <string name="sunrise">Sunrise</string>
+  <string name="sunset">Sunset: %s</string>
 
 </resources>

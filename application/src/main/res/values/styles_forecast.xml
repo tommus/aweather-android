@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment />
+
+  <style name="Aweather.Forecast" />
+
+  <style name="Aweather.Forecast.Header" />
+
+  <style name="Aweather.Forecast.Header.Name">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">24sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Header.Temperature">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">92sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Header.Description">
+    <item name="android:lines">1</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Tile" />
+
+  <style name="Aweather.Forecast.Tile.Card">
+    <item name="android:minHeight">160dp</item>
+    <item name="android:padding">12dp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Tile.Title">
+    <item name="android:textAllCaps">true</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Tile.Primary">
+    <item name="android:textSize">28sp</item>
+  </style>
+
+  <style name="Aweather.Forecast.Tile.Details">
+    <item name="android:textSize">16sp</item>
+  </style>
+
+</resources>

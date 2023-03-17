@@ -4,7 +4,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.windly.aweather.base.navigation.NavigationEvent
+import dev.windly.aweather.base.navigation.Event
 import io.reactivex.rxjava3.core.Flowable
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -21,10 +21,14 @@ class StartViewModel @Inject constructor(
   resources: StartResources
 ) : ViewModel(), DefaultLifecycleObserver {
 
-  private val navigationChannel: Channel<NavigationEvent> =
+  // TODO: 12.03.2023
+  //  Get rid of coroutines / channels / flows as Empik is more
+  //  font of reactive extensions.
+
+  private val navigationChannel: Channel<Event> =
     Channel()
 
-  val navigation: Flow<NavigationEvent> =
+  val navigation: Flow<Event> =
     navigationChannel.receiveAsFlow()
 
   private val helloFlow: Flow<CharSequence> =
@@ -36,6 +40,6 @@ class StartViewModel @Inject constructor(
       .stateIn(
         scope = viewModelScope,
         started = SharingStarted.Eagerly,
-        initialValue = StartViewState.empty()
+        initialValue = StartViewState.Empty
       )
 }

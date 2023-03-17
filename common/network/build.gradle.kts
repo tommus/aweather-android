@@ -37,15 +37,15 @@ dependencies {
   implementation(project(":base:language"))
   implementation(project(":configuration"))
 
-  implementation(libs.hilt.android)
-  kapt(libs.hilt.compiler)
+  implementation(libs.dagger.hilt.android)
+  kapt(libs.dagger.hilt.compiler)
 
-  implementation(libs.network.moshi)
-  kapt(libs.network.moshi.codegen)
+  implementation(libs.moshi)
+  kapt(libs.moshi.codegen)
 
-  implementation(libs.network.okhttp)
-  implementation(libs.network.okhttp.logging)
+  implementation(libs.okhttp)
+  implementation(libs.okhttp.logging)
 
-  api(libs.bundles.network.retrofit)
-  implementation(libs.network.retrofit.rxjava3)
+  api(libs.bundles.retrofit)
+  implementation(libs.retrofit.rxjava3)
 }

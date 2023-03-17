@@ -6,7 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.windly.aweather.R
-import dev.windly.aweather.base.navigation.NavigationEvent
+import dev.windly.aweather.base.navigation.Event
 import dev.windly.aweather.databinding.FragmentStartBinding
 import dev.windly.aweather.mvvm.fragment.BaseFragment
 import javax.inject.Inject
@@ -50,11 +50,11 @@ class StartFragment : BaseFragment<FragmentStartBinding, StartViewModel>() {
     binding.hello = state.data
   }
 
-  private fun handleNavigation(event: NavigationEvent) {
+  private fun handleNavigation(event: Event) {
     when (event) {
 
       // TODO: Consume navigation event.
-      is StartNavigationEvent -> Unit
+      is StartEvent -> Unit
     }
   }
 }

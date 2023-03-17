@@ -4,13 +4,15 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.windly.aweather.resources.R
+import dev.windly.aweather.time.DateTimeFormat
 import dev.windly.aweather.weather.domain.model.CurrentWeather
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
 @Reusable
 class ForecastResources @Inject constructor(
-  @ApplicationContext private val context: Context
+  @ApplicationContext private val context: Context,
+  private val format: DateTimeFormat,
 ) {
 
   /**
@@ -44,4 +46,21 @@ class ForecastResources @Inject constructor(
    */
   fun descriptionPlaceholder(): CharSequence =
     context.getString(R.string.description_placeholder)
+
+  /**
+   * Returns a string representation describing a sunrise time.
+   */
+  fun sunrise(forecast: CurrentWeather): CharSequence =
+    format.timeAsText(forecast.system.sunrise)
+
+  /**
+   * Returns a string representation describing a sunset time.
+   */
+  fun sunset(forecast: CurrentWeather): CharSequence {
+
+    val sunset = forecast.system.sunset
+    val text = format.timeAsText(sunset)
+
+    return context.getString(R.string.sunset, text)
+  }
 }

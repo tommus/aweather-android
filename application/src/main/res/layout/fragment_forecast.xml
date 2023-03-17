@@ -2,7 +2,7 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:inner="http://schemas.android.com/apk/res-auto">
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
 
@@ -21,11 +21,13 @@
       layout="@layout/layout_forecast_header"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      inner:state="@{viewModel.state}" />
+      app:state="@{viewModel.state}" />
 
-    <!-- Sys - sunrise. -->
-
-    <!-- Sys - sunset. -->
+    <include
+      layout="@layout/layout_suncycle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:state="@{viewModel.state}" />
 
     <!-- Wind - deg. -->
 

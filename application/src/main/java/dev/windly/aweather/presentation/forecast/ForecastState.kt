@@ -7,6 +7,8 @@ data class ForecastState(
   val temperature: CharSequence = "",
   val description: CharSequence = "",
   val range: CharSequence = "",
+  val sunrise: CharSequence = "",
+  val sunset: CharSequence = "",
   val loading: Int = View.GONE,
 ) {
 

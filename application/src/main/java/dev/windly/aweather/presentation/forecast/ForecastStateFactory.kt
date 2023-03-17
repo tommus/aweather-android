@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class ForecastStateFactory @Inject constructor(
-  private val resources: ForecastResources
+  private val resources: ForecastResources,
 ) {
 
   internal fun create(
@@ -18,6 +18,8 @@ class ForecastStateFactory @Inject constructor(
       temperature = temperatureFor(forecast),
       description = descriptionFor(forecast),
       range = rangeFor(forecast),
+      sunrise = sunriseFor(forecast),
+      sunset = sunsetFor(forecast),
       loading = loading,
     )
 
@@ -26,9 +28,11 @@ class ForecastStateFactory @Inject constructor(
 
   private fun descriptionFor(forecast: CurrentWeather): CharSequence {
 
-    // Documentation of [CurrentWeather.weather] is insufficient. It
-    // does not shed any additional light why it's a collection and which
-    // description is the most relevant.
+    // API documentation is insufficient when it comes to the "weather"
+    // content.
+    //
+    // It does not shed any additional light why it's a collection and
+    // which description is the most relevant.
     //
     // Thus, I've decided to arbitrary pick the very first one.
 
@@ -42,4 +46,10 @@ class ForecastStateFactory @Inject constructor(
 
   private fun rangeFor(forecast: CurrentWeather): CharSequence =
     resources.range(forecast)
+
+  private fun sunriseFor(forecast: CurrentWeather): CharSequence =
+    resources.sunrise(forecast)
+
+  private fun sunsetFor(forecast: CurrentWeather): CharSequence =
+    resources.sunset(forecast)
 }

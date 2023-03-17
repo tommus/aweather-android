@@ -30,8 +30,8 @@ dependencies {
   implementation(project(":base:language"))
   implementation(project(":configuration"))
 
-  implementation(libs.hilt.android)
-  kapt(libs.hilt.compiler)
+  implementation(libs.dagger.hilt.android)
+  kapt(libs.dagger.hilt.compiler)
 
   implementation(libs.rx.java)
 

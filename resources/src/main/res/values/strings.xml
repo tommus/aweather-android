@@ -9,10 +9,15 @@
   <string name="degree">%d°</string>
   <string name="description_placeholder">No description</string>
   <string name="hpa">%d hPa</string>
+  <string name="in_gusts_to">In gusts up to %d %s</string>
+  <string name="kph">kph</string>
+  <string name="mph">mph</string>
   <string name="pressure">Pressure</string>
   <string name="range">From %d° to %d°</string>
   <string name="on_sea_level">On a sea level</string>
   <string name="sunrise">Sunrise</string>
   <string name="sunset">Sunset: %s</string>
+  <string name="wind">Wind</string>
+  <string name="wind_speed">%d %s</string>
 
 </resources>

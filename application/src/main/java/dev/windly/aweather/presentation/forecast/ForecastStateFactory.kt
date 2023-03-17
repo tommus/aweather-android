@@ -21,6 +21,8 @@ class ForecastStateFactory @Inject constructor(
       sunrise = sunriseFor(forecast),
       sunset = sunsetFor(forecast),
       pressure = pressureFor(forecast),
+      wind = windFor(forecast),
+      gusts = gustsFor(forecast),
       loading = loading,
     )
 
@@ -56,4 +58,10 @@ class ForecastStateFactory @Inject constructor(
 
   private fun pressureFor(forecast: CurrentWeather): CharSequence =
     resources.pressure(forecast)
+
+  private fun windFor(forecast: CurrentWeather): CharSequence =
+    resources.windSpeed(forecast)
+
+  private fun gustsFor(forecast: CurrentWeather): CharSequence =
+    resources.gusts(forecast)
 }

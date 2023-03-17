@@ -7,6 +7,7 @@ import dev.windly.aweather.resources.R
 import dev.windly.aweather.time.DateTimeFormat
 import dev.windly.aweather.weather.domain.model.CurrentWeather
 import javax.inject.Inject
+import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 @Reusable
@@ -16,7 +17,7 @@ class ForecastResources @Inject constructor(
 ) {
 
   /**
-   * Returns a string representation of a temperature.
+   * Returns a text representation of a temperature.
    */
   fun temperature(forecast: CurrentWeather): CharSequence {
 
@@ -29,7 +30,7 @@ class ForecastResources @Inject constructor(
   }
 
   /**
-   * Returns a string representation describing min-to-max range of
+   * Returns a text representation describing min-to-max range of
    * temperatures.
    */
   fun range(forecast: CurrentWeather): CharSequence {
@@ -48,13 +49,13 @@ class ForecastResources @Inject constructor(
     context.getString(R.string.description_placeholder)
 
   /**
-   * Returns a string representation describing a sunrise time.
+   * Returns a text representation describing a sunrise time.
    */
   fun sunrise(forecast: CurrentWeather): CharSequence =
     format.timeAsText(forecast.system.sunrise)
 
   /**
-   * Returns a string representation describing a sunset time.
+   * Returns a text representation describing a sunset time.
    */
   fun sunset(forecast: CurrentWeather): CharSequence {
 
@@ -65,7 +66,7 @@ class ForecastResources @Inject constructor(
   }
 
   /**
-   * Returns a string representation of an atmospheric pressure.
+   * Returns a text representation of an atmospheric pressure.
    */
   fun pressure(forecast: CurrentWeather): CharSequence {
 
@@ -73,4 +74,39 @@ class ForecastResources @Inject constructor(
 
     return context.getString(R.string.hpa, pressure)
   }
+
+  /**
+   * Returns a text representation of a wind speed.
+   */
+  fun windSpeed(forecast: CurrentWeather): CharSequence {
+
+    // Underestimating a wind speed can be dangerous.
+    //
+    // That's why, instead of rounding to the closest integer, the
+    // speed value was rounded up instead.
+
+    val speed = ceil(forecast.wind.speed).roundToInt()
+
+    // TODO: 17.03.2023
+    //  API is parametrized by measurement units so the text format
+    //  should be translated accordingly to the unit of choice.
+
+    val unit = kph()
+
+    return context.getString(R.string.wind_speed, speed, unit)
+  }
+
+  /**
+   * Returns a text representation of gusts details.
+   */
+  fun gusts(forecast: CurrentWeather): CharSequence {
+
+    val speed = ceil(forecast.wind.gust).roundToInt()
+    val unit = kph()
+
+    return context.getString(R.string.in_gusts_to, speed, unit)
+  }
+
+  private fun kph(): CharSequence = context.getString(R.string.kph)
+  private fun mph(): CharSequence = context.getString(R.string.mph)
 }

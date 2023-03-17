@@ -12,6 +12,7 @@ data class ForecastState(
   val pressure: CharSequence = "",
   val wind: CharSequence = "",
   val gusts: CharSequence = "",
+  val visibility: CharSequence = "",
   val loading: Int = View.GONE,
 ) {
 

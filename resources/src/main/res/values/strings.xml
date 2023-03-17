@@ -17,6 +17,9 @@
   <string name="on_sea_level">On a sea level</string>
   <string name="sunrise">Sunrise</string>
   <string name="sunset">Sunset: %s</string>
+  <string name="visibility">Visibility</string>
+  <string name="visibility_distance">%d km</string>
+  <string name="visibility_limitation">Supported up to 10 kilometers</string>
   <string name="wind">Wind</string>
   <string name="wind_speed">%d %s</string>
 

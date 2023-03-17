@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="state"
+      type="dev.windly.aweather.presentation.forecast.ForecastState" />
+
+  </data>
+
+  <LinearLayout
+    style="@style/Aweather.Forecast.Tile.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+      style="@style/Aweather.Forecast.Tile.Title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawablePadding="10dp"
+      android:gravity="center_vertical"
+      android:text="@string/visibility"
+      app:drawableStartCompat="@drawable/ic_visibility"
+      tools:drawableStart="@drawable/ic_visibility" />
+
+    <TextView
+      style="@style/Aweather.Forecast.Tile.Primary"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:layout_marginBottom="12dp"
+      android:text="@{state.visibility}"
+      tools:text="10 km" />
+
+    <Space
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_weight="1" />
+
+    <TextView
+      style="@style/Aweather.Forecast.Tile.Details"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/visibility_limitation" />
+
+  </LinearLayout>
+
+</layout>

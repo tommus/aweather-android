@@ -107,6 +107,19 @@ class ForecastResources @Inject constructor(
     return context.getString(R.string.in_gusts_to, speed, unit)
   }
 
+  /**
+   * Returns a text representation of visibility details.
+   */
+  fun visibility(forecast: CurrentWeather): CharSequence {
+
+    // Weirdly, API does not take into account imperial values for
+    // the visibility.
+
+    val distance = forecast.visibility / 1_000L
+
+    return context.getString(R.string.visibility_distance, distance)
+  }
+
   private fun kph(): CharSequence = context.getString(R.string.kph)
   private fun mph(): CharSequence = context.getString(R.string.mph)
 }

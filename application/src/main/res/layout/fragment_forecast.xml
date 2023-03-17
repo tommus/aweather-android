@@ -12,47 +12,57 @@
 
   </data>
 
-  <LinearLayout
+  <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <include
-      layout="@layout/layout_forecast_header"
+    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      android:orientation="vertical">
 
-    <include
-      layout="@layout/layout_suncycle"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      <include
+        layout="@layout/layout_forecast_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <include
-      layout="@layout/layout_pressure"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      <include
+        layout="@layout/layout_suncycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <include
-      layout="@layout/layout_wind"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      <include
+        layout="@layout/layout_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <!-- Rain - 1h. -->
+      <include
+        layout="@layout/layout_wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <!-- Rain - 3h. -->
+      <include
+        layout="@layout/layout_visibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <!-- Main - feels like. -->
+      <!-- Rain - 1h. -->
 
-    <!-- Visibility. -->
+      <!-- Rain - 3h. -->
 
-    <!-- Main - Pressure. -->
+      <!-- Main - feels like. -->
 
-    <!-- Main - humidity. -->
+      <!-- Main - Pressure. -->
 
-  </LinearLayout>
+      <!-- Main - humidity. -->
+
+    </LinearLayout>
+
+  </ScrollView>
 
 </layout>

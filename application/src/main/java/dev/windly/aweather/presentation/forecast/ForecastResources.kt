@@ -180,6 +180,11 @@ class ForecastResources @Inject constructor(
     return context.getString(R.string.snow_amount, amount)
   }
 
+  /**
+   * Returns a text representation of the present date.
+   */
+  fun today(): CharSequence = format.todayAsText()
+
   private fun kph(): CharSequence = context.getString(R.string.kph)
   private fun mph(): CharSequence = context.getString(R.string.mph)
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="state"
+      type="dev.windly.aweather.presentation.forecast.ForecastState" />
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+      android:id="@+id/view_location"
+      style="@style/Aweather.Forecast.Header.Location"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{state.name}"
+      app:drawableStartCompat="@drawable/ic_location"
+      app:layout_constraintBottom_toTopOf="@+id/view_date"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:drawableStart="@drawable/ic_location"
+      tools:text="Hyrule" />
+
+    <TextView
+      android:id="@+id/view_date"
+      style="@style/Aweather.Forecast.Header.Date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="0dp"
+      android:text="@{state.date}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="@+id/view_location"
+      app:layout_constraintTop_toBottomOf="@+id/view_location"
+      tools:text="12 September, Sunday" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

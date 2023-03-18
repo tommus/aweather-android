@@ -10,6 +10,12 @@ data class ForecastState(
   val sunrise: CharSequence = "",
   val sunset: CharSequence = "",
   val pressure: CharSequence = "",
+  val wind: CharSequence = "",
+  val gusts: CharSequence = "",
+  val visibility: CharSequence = "",
+  val feelsLike: CharSequence = "",
+  val humidity: CharSequence = "",
+  val dewPoint: CharSequence = "",
   val loading: Int = View.GONE,
 ) {
 

@@ -36,6 +36,10 @@
     android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
     tools:layout="@layout/fragment_forecast">
 
+    <action
+      android:id="@+id/actionSearch"
+      app:destination="@+id/search_fragment" />
+
     <!-- TODO: Remove default values once UI finished. -->
 
     <argument

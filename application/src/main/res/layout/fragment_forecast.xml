@@ -28,7 +28,7 @@
         layout="@layout/layout_forecast_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:state="@{viewModel.state}" />
+        app:viewModel="@{viewModel}" />
 
       <include
         layout="@layout/layout_forecast_header"

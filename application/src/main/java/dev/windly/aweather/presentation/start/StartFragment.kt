@@ -6,7 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.windly.aweather.R
-import dev.windly.aweather.base.navigation.Event
+import dev.windly.aweather.base.event.Event
 import dev.windly.aweather.databinding.FragmentStartBinding
 import dev.windly.aweather.mvvm.fragment.BaseFragment
 import javax.inject.Inject

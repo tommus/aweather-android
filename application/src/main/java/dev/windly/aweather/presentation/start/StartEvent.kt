@@ -1,6 +1,6 @@
 package dev.windly.aweather.presentation.start
 
-import dev.windly.aweather.base.navigation.Event
+import dev.windly.aweather.base.event.Event
 
 /**
  * An event which occurs when user wants to [...].

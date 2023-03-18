@@ -30,6 +30,19 @@
     <item name="fontWeight">300</item>
   </style>
 
+  <style name="Aweather.Forecast.Header.Button">
+    <item name="android:foreground">?attr/selectableItemBackground</item>
+    <item name="android:insetBottom">0dp</item>
+    <item name="android:insetLeft">0dp</item>
+    <item name="android:insetRight">0dp</item>
+    <item name="android:insetTop">0dp</item>
+    <item name="android:minHeight">52dp</item>
+    <item name="android:minWidth">52dp</item>
+    <item name="cornerRadius">12dp</item>
+    <item name="iconGravity">textStart</item>
+    <item name="iconPadding">0dp</item>
+  </style>
+
   <style name="Aweather.Forecast.Header.Temperature">
     <item name="android:fontWeight" tools:targetApi="o">600</item>
     <item name="android:lines">1</item>

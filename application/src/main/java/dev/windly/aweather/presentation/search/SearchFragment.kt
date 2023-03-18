@@ -16,7 +16,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     by navGraphViewModels(R.id.nav_main) { defaultViewModelProviderFactory }
 
   override val layoutRes: Int
-    get() = R.layout.fragment_forecast
+    get() = R.layout.fragment_search
 
   override fun bindView(binding: FragmentSearchBinding) {
     // No-op.

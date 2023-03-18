@@ -7,6 +7,6 @@ data class Main(
   var humidity: Int = 0,
   var minimalTemperature: Float = 0.0f,
   var maximalTemperature: Float = 0.0f,
-  var seaLevel: Int = 0,
-  var groundLevel: Int = 0,
+  var seaLevel: Int? = null,
+  var groundLevel: Int? = null,
 )

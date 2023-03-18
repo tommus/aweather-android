@@ -1,11 +1,13 @@
 package dev.windly.aweather.presentation.forecast
 
+import android.graphics.drawable.Drawable
 import dagger.hilt.android.scopes.ViewModelScoped
 import dev.windly.aweather.weather.domain.model.CurrentWeather
 import javax.inject.Inject
 
 @ViewModelScoped
 class ForecastStateFactory @Inject constructor(
+  private val icons: ForecastIcons,
   private val resources: ForecastResources,
 ) {
 
@@ -15,8 +17,10 @@ class ForecastStateFactory @Inject constructor(
   ): ForecastState =
     ForecastState(
       name = forecast.name,
+      date = today(),
       temperature = temperatureFor(forecast),
       description = descriptionFor(forecast),
+      icon = iconFor(forecast),
       range = rangeFor(forecast),
       sunrise = sunriseFor(forecast),
       sunset = sunsetFor(forecast),
@@ -88,4 +92,15 @@ class ForecastStateFactory @Inject constructor(
 
   private fun snowFor(forecast: CurrentWeather): CharSequence =
     resources.snow(forecast)
+
+  private fun iconFor(forecast: CurrentWeather): Drawable? {
+
+    val weather = forecast.weather.firstOrNull()
+      ?: return null
+
+    return icons.require(weather.icon)
+  }
+
+  private fun today(): CharSequence =
+    resources.today()
 }

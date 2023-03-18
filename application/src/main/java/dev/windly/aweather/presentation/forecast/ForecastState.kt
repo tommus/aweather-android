@@ -1,11 +1,14 @@
 package dev.windly.aweather.presentation.forecast
 
+import android.graphics.drawable.Drawable
 import android.view.View
 
 data class ForecastState(
   val name: CharSequence = "",
+  val date: CharSequence = "",
   val temperature: CharSequence = "",
   val description: CharSequence = "",
+  val icon: Drawable? = null,
   val range: CharSequence = "",
   val sunrise: CharSequence = "",
   val sunset: CharSequence = "",

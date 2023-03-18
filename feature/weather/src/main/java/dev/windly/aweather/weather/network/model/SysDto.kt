@@ -20,9 +20,13 @@ data class SysDto(
 
   /**
    * Internal parameter.
+   *
+   * Warning: API does not mention this value as optional but
+   * apparently it might not be delivered (which makes sense as it can be
+   * treated as message of the day).
    */
   @Json(name = "message")
-  val message: String = "",
+  val message: String? = null,
 
   /**
    * Country code (ISO 3166 Alpha-2 code).

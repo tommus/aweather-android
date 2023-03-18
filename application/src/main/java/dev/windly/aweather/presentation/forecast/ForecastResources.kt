@@ -160,6 +160,21 @@ class ForecastResources @Inject constructor(
     return context.getString(R.string.dew_point_at, dewPoint)
   }
 
+  /**
+   * Returns a text representation of rainfall.
+   */
+  fun rain(forecast: CurrentWeather): CharSequence {
+
+    // Underestimating a rain intensity can be dangerous.
+    //
+    // That's why, instead of rounding to the closest integer, the
+    // total amount was rounded up instead.
+
+    val amount = ceil(forecast.rain?.threeHours ?: 0.0f).roundToInt()
+
+    return context.getString(R.string.rain_amount, amount)
+  }
+
   private fun kph(): CharSequence = context.getString(R.string.kph)
   private fun mph(): CharSequence = context.getString(R.string.mph)
 }

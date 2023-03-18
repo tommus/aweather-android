@@ -52,13 +52,13 @@ data class CurrentWeatherDto(
    * Rainfall details.
    */
   @Json(name = "rain")
-  val rain: FallDto = FallDto(),
+  val rain: FallDto? = null,
 
   /**
    * Snowfall details.
    */
   @Json(name = "snow")
-  val snow: FallDto = FallDto(),
+  val snow: FallDto? = null,
 
   /**
    * Time of data calculation. UTC UNIX timezone.

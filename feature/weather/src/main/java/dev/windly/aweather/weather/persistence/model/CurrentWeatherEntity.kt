@@ -35,10 +35,10 @@ data class CurrentWeatherEntity(
   var clouds: CloudsEmbedded = CloudsEmbedded(),
 
   @Embedded(prefix = "rain_")
-  var rain: FallEmbedded = FallEmbedded(),
+  var rain: FallEmbedded? = null,
 
   @Embedded(prefix = "snow_")
-  var snow: FallEmbedded = FallEmbedded(),
+  var snow: FallEmbedded? = null,
 
   @ColumnInfo(name = "dt")
   var timestamp: Long = 0L,

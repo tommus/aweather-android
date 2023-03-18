@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
   <eat-comment />
 
@@ -15,9 +15,11 @@
   </style>
 
   <style name="Aweather.Forecast.Header.Temperature">
+    <item name="android:fontWeight" tools:targetApi="o">600</item>
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
     <item name="android:textSize">92sp</item>
+    <item name="fontWeight">600</item>
   </style>
 
   <style name="Aweather.Forecast.Header.Description">
@@ -41,19 +43,23 @@
 
   <style name="Aweather.Forecast.Tile.Title">
     <item name="android:drawablePadding">8dp</item>
+    <item name="android:fontWeight" tools:targetApi="o">600</item>
     <item name="android:gravity">center_vertical</item>
     <item name="android:textAllCaps">true</item>
     <item name="android:textSize">14sp</item>
     <item name="drawableTint">@android:color/white</item>
+    <item name="fontWeight">600</item>
   </style>
 
   <style name="Aweather.Forecast.Tile.Primary">
+    <item name="android:fontWeight" tools:targetApi="o">800</item>
     <item name="android:textSize">30sp</item>
+    <item name="fontWeight">800</item>
   </style>
 
   <style name="Aweather.Forecast.Tile.Details">
     <item name="android:textColor">@color/manatee</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">14sp</item>
   </style>
 
 </resources>

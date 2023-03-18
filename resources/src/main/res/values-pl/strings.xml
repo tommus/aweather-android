@@ -14,10 +14,11 @@
   <string name="in_gusts_to">W porywach do %d %s</string>
   <string name="kph">km/h</string>
   <string name="mph">mi/h</string>
+  <string name="on_sea_level">Na poziomie morza</string>
   <string name="pressure">Ciśnienie</string>
   <string name="range">Od %d° do %d°</string>
-  <string name="rain">Opady</string>
-  <string name="on_sea_level">Na poziomie morza</string>
+  <string name="rain">Deszcz</string>
+  <string name="snow">Śnieg</string>
   <string name="sunrise">Wschód słońca</string>
   <string name="sunset">Zachód: %s</string>
   <string name="visibility">Widoczność</string>

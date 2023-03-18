@@ -17,6 +17,7 @@ data class ForecastState(
   val humidity: CharSequence = "",
   val dewPoint: CharSequence = "",
   val rain: CharSequence = "",
+  val snow: CharSequence = "",
   val loading: Int = View.GONE,
 ) {
 

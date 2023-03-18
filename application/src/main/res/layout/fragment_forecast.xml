@@ -40,13 +40,30 @@
           layout="@layout/layout_rain"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_marginHorizontal="0dp"
+          android:layout_marginStart="0dp"
           android:layout_marginTop="0dp"
+          android:layout_marginEnd="6dp"
           android:layout_marginBottom="6dp"
           app:layout_constraintBottom_toTopOf="@+id/view_sun"
-          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/view_snow"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
+          app:state="@{viewModel.state}" />
+
+        <include
+          android:id="@+id/view_snow"
+          layout="@layout/layout_snow"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="0dp"
+          android:layout_marginStart="6dp"
+          android:layout_marginTop="0dp"
+          android:layout_marginEnd="0dp"
+          android:layout_marginBottom="6dp"
+          app:layout_constraintBottom_toBottomOf="@+id/view_rain"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/view_rain"
+          app:layout_constraintTop_toTopOf="@+id/view_rain"
           app:state="@{viewModel.state}" />
 
         <include

@@ -17,11 +17,13 @@
   <string name="in_gusts_to">In gusts up to %d %s</string>
   <string name="kph">kph</string>
   <string name="mph">mph</string>
+  <string name="on_sea_level">On a sea level</string>
   <string name="pressure">Pressure</string>
   <string name="range">From %d° to %d°</string>
   <string name="rain">Rain</string>
   <string name="rain_amount" translatable="false">%d mm</string>
-  <string name="on_sea_level">On a sea level</string>
+  <string name="snow">Snow</string>
+  <string name="snow_amount" translatable="false">%d mm</string>
   <string name="sunrise">Sunrise</string>
   <string name="sunset">Sunset: %s</string>
   <string name="visibility">Visibility</string>

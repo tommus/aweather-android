@@ -28,6 +28,7 @@ class ForecastStateFactory @Inject constructor(
       humidity = humidityFor(forecast),
       dewPoint = dewPointFor(forecast),
       rain = rainFor(forecast),
+      snow = snowFor(forecast),
       loading = loading,
     )
 
@@ -84,4 +85,7 @@ class ForecastStateFactory @Inject constructor(
 
   private fun rainFor(forecast: CurrentWeather): CharSequence =
     resources.rain(forecast)
+
+  private fun snowFor(forecast: CurrentWeather): CharSequence =
+    resources.snow(forecast)
 }

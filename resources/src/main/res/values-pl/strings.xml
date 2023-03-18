@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment />
+
+  <string name="hello">Witaj świecie!</string>
+
+  <string name="degree">%d°</string>
+  <string name="description_placeholder">Brak szczegółów</string>
+  <string name="dew_point_at">Punkt rosy w tej chwili wynosi %d°</string>
+  <string name="feels_like">Odczuwalna</string>
+  <string name="hpa">%d hPa</string>
+  <string name="humidity">Wilgotność</string>
+  <string name="humidity_percentage">%d%%</string>
+  <string name="in_gusts_to">W porywach do %d %s</string>
+  <string name="kph">km/h</string>
+  <string name="mph">mi/h</string>
+  <string name="pressure">Ciśnienie</string>
+  <string name="range">Od %d° do %d°</string>
+  <string name="on_sea_level">Na poziomie morza</string>
+  <string name="sunrise">Wschód słońca</string>
+  <string name="sunset">Zachód: %s</string>
+  <string name="visibility">Widoczność</string>
+  <string name="visibility_distance">%d km</string>
+  <string name="visibility_limitation">Obsługa do 10 kilometrów</string>
+  <string name="wind">Wiatr</string>
+  <string name="wind_speed">%d %s</string>
+
+</resources>

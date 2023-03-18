@@ -13,46 +13,61 @@
 
   </data>
 
-  <LinearLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingTop="24dp"
-    android:paddingBottom="24dp">
+    android:paddingHorizontal="16dp">
 
-    <TextView
-      style="@style/Aweather.Forecast.Header.Name"
-      android:layout_width="wrap_content"
+    <LinearLayout
+      android:id="@+id/view_start"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_gravity="center_horizontal"
-      android:text="@{state.name}"
-      app:drawableStartCompat="@drawable/ic_location"
-      tools:drawableStart="@drawable/ic_location"
-      tools:text="Hyrule" />
+      android:layout_margin="8dp"
+      android:gravity="start"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/view_end"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-      style="@style/Aweather.Forecast.Header.Temperature"
-      android:layout_width="match_parent"
+      <TextView
+        style="@style/Aweather.Forecast.Header.Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{state.temperature}"
+        tools:text="-4°" />
+
+      <TextView
+        style="@style/Aweather.Forecast.Header.Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{state.description}"
+        tools:text="Shockstorm" />
+
+      <TextView
+        style="@style/Aweather.Forecast.Header.Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="0dp"
+        android:text="@{state.range}"
+        tools:text="From -2° to 3°" />
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/view_end"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="@{state.temperature}"
-      tools:text="-4°" />
+      android:adjustViewBounds="true"
+      android:contentDescription="@null"
+      android:src="@{state.icon}"
+      app:layout_constraintBottom_toBottomOf="@+id/view_start"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/view_start"
+      app:layout_constraintTop_toTopOf="@id/view_start"
+      tools:src="@drawable/weather_01d" />
 
-    <TextView
-      style="@style/Aweather.Forecast.Header.Description"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@{state.description}"
-      tools:text="Shockstorm" />
-
-    <TextView
-      style="@style/Aweather.Forecast.Header.Description"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="4dp"
-      android:layout_marginBottom="0dp"
-      android:text="@{state.range}"
-      tools:text="From -2° to 3°" />
-
-  </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

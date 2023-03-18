@@ -25,6 +25,12 @@
       android:orientation="vertical">
 
       <include
+        layout="@layout/layout_forecast_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
+
+      <include
         layout="@layout/layout_forecast_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +43,7 @@
 
         <include
           android:id="@+id/view_rain"
-          layout="@layout/layout_rain"
+          layout="@layout/layout_forecast_rain"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="0dp"
@@ -52,7 +58,7 @@
 
         <include
           android:id="@+id/view_snow"
-          layout="@layout/layout_snow"
+          layout="@layout/layout_forecast_snow"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="0dp"
@@ -68,7 +74,7 @@
 
         <include
           android:id="@+id/view_sun"
-          layout="@layout/layout_sun"
+          layout="@layout/layout_forecast_sun"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginVertical="6dp"
@@ -82,7 +88,7 @@
 
         <include
           android:id="@+id/view_pressure"
-          layout="@layout/layout_pressure"
+          layout="@layout/layout_forecast_pressure"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
@@ -95,7 +101,7 @@
 
         <include
           android:id="@+id/view_wind"
-          layout="@layout/layout_wind"
+          layout="@layout/layout_forecast_wind"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginVertical="6dp"
@@ -109,7 +115,7 @@
 
         <include
           android:id="@+id/view_visibility"
-          layout="@layout/layout_visibility"
+          layout="@layout/layout_forecast_visibility"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
@@ -122,7 +128,7 @@
 
         <include
           android:id="@+id/view_temperature"
-          layout="@layout/layout_temperature"
+          layout="@layout/layout_forecast_temperature"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="0dp"
@@ -137,7 +143,7 @@
 
         <include
           android:id="@+id/view_humidity"
-          layout="@layout/layout_humidity"
+          layout="@layout/layout_forecast_humidity"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"

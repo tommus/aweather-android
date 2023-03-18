@@ -2,6 +2,7 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
@@ -21,9 +22,12 @@
 
     <TextView
       style="@style/Aweather.Forecast.Header.Name"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
       android:text="@{state.name}"
+      app:drawableStartCompat="@drawable/ic_location"
+      tools:drawableStart="@drawable/ic_location"
       tools:text="Hyrule" />
 
     <TextView

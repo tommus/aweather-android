@@ -9,9 +9,11 @@
   <style name="Aweather.Forecast.Header" />
 
   <style name="Aweather.Forecast.Header.Name">
+    <item name="android:drawablePadding">4dp</item>
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
     <item name="android:textSize">24sp</item>
+    <item name="drawableTint">@android:color/white</item>
   </style>
 
   <style name="Aweather.Forecast.Header.Temperature">

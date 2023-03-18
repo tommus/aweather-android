@@ -13,43 +13,48 @@
 
   </data>
 
-  <LinearLayout
+  <com.google.android.material.card.MaterialCardView
     style="@style/Aweather.Forecast.Tile.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Title"
+    <LinearLayout
+      style="@style/Aweather.Forecast.Tile.Content"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:drawablePadding="10dp"
-      android:gravity="center_vertical"
-      android:text="@string/humidity"
-      app:drawableStartCompat="@drawable/ic_humidity"
-      tools:drawableStart="@drawable/ic_humidity" />
+      android:orientation="vertical">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Primary"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="6dp"
-      android:layout_marginBottom="12dp"
-      android:text="@{state.humidity}"
-      tools:text="61%" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        app:drawableStartCompat="@drawable/ic_humidity"
+        tools:drawableStart="@drawable/ic_humidity" />
 
-    <Space
-      android:layout_width="wrap_content"
-      android:layout_height="0dp"
-      android:layout_weight="1" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:text="@{state.humidity}"
+        tools:text="61%" />
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Details"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@{state.dewPoint}"
-      tools:text="Dew point at a moment is at 2°" />
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-  </LinearLayout>
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{state.dewPoint}"
+        tools:text="Dew point at a moment is at 2°" />
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
 
 </layout>

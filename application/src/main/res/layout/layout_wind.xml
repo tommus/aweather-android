@@ -13,43 +13,48 @@
 
   </data>
 
-  <LinearLayout
+  <com.google.android.material.card.MaterialCardView
     style="@style/Aweather.Forecast.Tile.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Title"
+    <LinearLayout
+      style="@style/Aweather.Forecast.Tile.Content"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:drawablePadding="10dp"
-      android:gravity="center_vertical"
-      android:text="@string/wind"
-      app:drawableStartCompat="@drawable/ic_wind"
-      tools:drawableStart="@drawable/ic_wind" />
+      android:orientation="vertical">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Primary"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="6dp"
-      android:layout_marginBottom="12dp"
-      android:text="@{state.wind}"
-      tools:text="20 kph" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wind"
+        app:drawableStartCompat="@drawable/ic_wind"
+        tools:drawableStart="@drawable/ic_wind" />
 
-    <Space
-      android:layout_width="wrap_content"
-      android:layout_height="0dp"
-      android:layout_weight="1" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:text="@{state.wind}"
+        tools:text="20 kph" />
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Details"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@{state.gusts}"
-      tools:text="In gusts to 26 kph" />
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-  </LinearLayout>
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{state.gusts}"
+        tools:text="In gusts to 26 kph" />
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
 
 </layout>

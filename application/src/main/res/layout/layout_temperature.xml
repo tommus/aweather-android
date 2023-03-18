@@ -13,36 +13,41 @@
 
   </data>
 
-  <LinearLayout
+  <com.google.android.material.card.MaterialCardView
     style="@style/Aweather.Forecast.Tile.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Title"
+    <LinearLayout
+      style="@style/Aweather.Forecast.Tile.Content"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:drawablePadding="10dp"
-      android:gravity="center_vertical"
-      android:text="@string/feels_like"
-      app:drawableStartCompat="@drawable/ic_temperature"
-      tools:drawableStart="@drawable/ic_temperature" />
+      android:orientation="vertical">
 
-    <TextView
-      style="@style/Aweather.Forecast.Tile.Primary"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="6dp"
-      android:layout_marginBottom="12dp"
-      android:text="@{state.feelsLike}"
-      tools:text="2°" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feels_like"
+        app:drawableStartCompat="@drawable/ic_temperature"
+        tools:drawableStart="@drawable/ic_temperature" />
 
-    <Space
-      android:layout_width="wrap_content"
-      android:layout_height="0dp"
-      android:layout_weight="1" />
+      <TextView
+        style="@style/Aweather.Forecast.Tile.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:text="@{state.feelsLike}"
+        tools:text="2°" />
 
-  </LinearLayout>
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
 
 </layout>

@@ -72,6 +72,12 @@ class ForecastResources @Inject constructor(
    */
   fun pressure(forecast: CurrentWeather): CharSequence {
 
+    // API states the pressure is at a sea level.
+    //
+    // It would make more sense for the user to show a pressure on a
+    // ground level - but it seems API fails to deliver this information,
+    // even though it is documented.
+
     val pressure = forecast.main.pressure
 
     return context.getString(R.string.hpa, pressure)

@@ -6,7 +6,10 @@
 
   <style name="Aweather.Forecast" />
 
-  <style name="Aweather.Forecast.Header" />
+  <style name="Aweather.Forecast.Header">
+    <item name="android:fontFamily">@font/russo</item>
+    <item name="fontFamily">@font/russo</item>
+  </style>
 
   <style name="Aweather.Forecast.Header.Name">
     <item name="android:drawablePadding">4dp</item>
@@ -25,10 +28,14 @@
   </style>
 
   <style name="Aweather.Forecast.Header.Description">
+    <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:fontWeight" tools:targetApi="o">300</item>
     <item name="android:lines">1</item>
     <item name="android:textAlignment">center</item>
     <item name="android:textColor">@color/manatee</item>
     <item name="android:textSize">16sp</item>
+    <item name="fontFamily">@font/chakra_petch</item>
+    <item name="fontWeight">300</item>
   </style>
 
   <style name="Aweather.Forecast.Tile" />

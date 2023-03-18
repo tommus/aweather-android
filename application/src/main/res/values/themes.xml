@@ -9,9 +9,9 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="fontFamily">@font/manrope</item>
+    <item name="fontFamily">@font/chakra_petch</item>
 
-    <item name="android:fontFamily">@font/manrope</item>
+    <item name="android:fontFamily">@font/chakra_petch</item>
     <item name="android:textColor">@android:color/white</item>
     <item name="android:windowBackground">@color/sharkDark</item>
     <item name="android:windowLightStatusBar">false</item>

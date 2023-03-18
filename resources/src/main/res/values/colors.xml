@@ -4,10 +4,11 @@
 
   <eat-comment />
 
-  <color name="colorPrimary">#008577</color>
-  <color name="colorPrimaryDark">#00574B</color>
-  <color name="colorAccent">#D81B60</color>
+  <color name="colorPrimary">@color/shark</color>
+  <color name="colorPrimaryDark">@color/sharkDark</color>
+  <color name="colorAccent">@color/heliotrope</color>
 
+  <color name="heliotrope">#B571FD</color>
   <color name="manatee">#9B9DA2</color>
   <color name="shark">#202329</color>
   <color name="sharkDark">#1A1C1E</color>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <style name="TextAppearance.Font" parent="@android:style/TextAppearance">
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="TextAppearance.Font.Manrope">
+    <item name="android:fontFamily">@font/manrope</item>
+    <item name="fontFamily">@font/manrope</item>
+    <item name="fontWeight">400</item>
+    <item name="android:textFontWeight" tools:targetApi="p">400</item>
+  </style>
+
+  <style name="TextAppearance.Font.Manrope.SemiBold">
+    <item name="android:fontFamily">@font/manrope</item>
+    <item name="fontFamily">@font/manrope</item>
+    <item name="fontWeight">600</item>
+    <item name="android:textFontWeight" tools:targetApi="p">600</item>
+  </style>
+
+  <style name="TextAppearance.Font.Manrope.Bold">
+    <item name="android:fontFamily">@font/manrope</item>
+    <item name="fontFamily">@font/manrope</item>
+    <item name="fontWeight">800</item>
+    <item name="android:textFontWeight" tools:targetApi="p">800</item>
+  </style>
+
+</resources>

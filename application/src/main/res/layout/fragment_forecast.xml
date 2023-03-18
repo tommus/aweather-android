@@ -2,7 +2,8 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
   <data>
 
@@ -12,45 +13,124 @@
 
   </data>
 
-  <LinearLayout
+  <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    tools:context=".presentation.MainActivity">
 
-    <include
-      layout="@layout/layout_forecast_header"
+    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      android:orientation="vertical">
 
-    <include
-      layout="@layout/layout_suncycle"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      <include
+        layout="@layout/layout_forecast_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:state="@{viewModel.state}" />
 
-    <include
-      layout="@layout/layout_pressure"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:state="@{viewModel.state}" />
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
 
-    <!-- Wind - deg. -->
+        <include
+          android:id="@+id/view_sun"
+          layout="@layout/layout_sun"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="0dp"
+          android:layout_marginTop="0dp"
+          android:layout_marginEnd="6dp"
+          android:layout_marginBottom="6dp"
+          app:layout_constraintBottom_toTopOf="@+id/view_wind"
+          app:layout_constraintEnd_toStartOf="@+id/view_pressure"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:state="@{viewModel.state}" />
 
-    <!-- Wind - speed. -->
+        <include
+          android:id="@+id/view_pressure"
+          layout="@layout/layout_pressure"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="6dp"
+          android:layout_marginTop="0dp"
+          android:layout_marginEnd="0dp"
+          android:layout_marginBottom="6dp"
+          app:layout_constraintBottom_toTopOf="@+id/view_visibility"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/view_sun"
+          app:layout_constraintTop_toTopOf="parent"
+          app:state="@{viewModel.state}" />
 
-    <!-- Rain - 1h. -->
+        <include
+          android:id="@+id/view_wind"
+          layout="@layout/layout_wind"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="6dp"
+          android:layout_marginStart="0dp"
+          android:layout_marginEnd="6dp"
+          app:layout_constraintBottom_toTopOf="@+id/view_temperature"
+          app:layout_constraintEnd_toStartOf="@+id/view_visibility"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/view_sun"
+          app:state="@{viewModel.state}" />
 
-    <!-- Rain - 3h. -->
+        <include
+          android:id="@+id/view_visibility"
+          layout="@layout/layout_visibility"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="6dp"
+          android:layout_marginStart="6dp"
+          android:layout_marginEnd="0dp"
+          app:layout_constraintBottom_toTopOf="@+id/view_humidity"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/view_wind"
+          app:layout_constraintTop_toBottomOf="@+id/view_pressure"
+          app:state="@{viewModel.state}" />
 
-    <!-- Main - feels like. -->
+        <include
+          android:id="@+id/view_temperature"
+          layout="@layout/layout_temperature"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="0dp"
+          android:layout_marginTop="6dp"
+          android:layout_marginEnd="6dp"
+          android:layout_marginBottom="0dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/view_humidity"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/view_wind"
+          app:state="@{viewModel.state}" />
 
-    <!-- Visibility. -->
+        <include
+          android:id="@+id/view_humidity"
+          layout="@layout/layout_humidity"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="6dp"
+          android:layout_marginTop="6dp"
+          android:layout_marginEnd="0dp"
+          android:layout_marginBottom="0dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/view_temperature"
+          app:layout_constraintTop_toBottomOf="@+id/view_visibility"
+          app:state="@{viewModel.state}" />
 
-    <!-- Main - Pressure. -->
+      </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Main - humidity. -->
+      <!-- Rain - 1h. -->
 
-  </LinearLayout>
+      <!-- Rain - 3h. -->
+
+    </LinearLayout>
+
+  </ScrollView>
 
 </layout>

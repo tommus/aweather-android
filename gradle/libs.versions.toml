@@ -32,6 +32,7 @@ fastadapter_utils = { module = "com.mikepenz:fastadapter-extensions-utils", vers
 google_ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version = "1.8.10-1.0.9" }
 google_material = { module = "com.google.android.material:material", version = "1.7.0" }
 google_services_gradle_plugin = { module = "com.google.gms:google-services", version.ref = "google_services_plugin" }
+jodatime = { module = "joda-time:joda-time", version = "2.12.2" }
 kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin_stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlinx_coroutines_rx3 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx3", version = "1.6.4" }

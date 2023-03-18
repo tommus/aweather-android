@@ -17,6 +17,8 @@ dependencies {
 
   api(libs.kotlin.stdlib)
 
+  implementation(libs.jodatime)
+
   implementation(libs.rx.java)
 
   implementation(libs.mapstruct)

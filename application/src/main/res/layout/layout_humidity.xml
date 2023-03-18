@@ -28,9 +28,9 @@
         style="@style/Aweather.Forecast.Tile.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pressure"
-        app:drawableStartCompat="@drawable/ic_pressure"
-        tools:drawableStart="@drawable/ic_pressure" />
+        android:text="@string/humidity"
+        app:drawableStartCompat="@drawable/ic_humidity"
+        tools:drawableStart="@drawable/ic_humidity" />
 
       <TextView
         style="@style/Aweather.Forecast.Tile.Primary"
@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="12dp"
-        android:text="@{state.pressure}"
-        tools:text="1020 hPa" />
+        android:text="@{state.humidity}"
+        tools:text="61%" />
 
       <Space
         android:layout_width="wrap_content"
@@ -50,7 +50,8 @@
         style="@style/Aweather.Forecast.Tile.Details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/on_sea_level" />
+        android:text="@{state.dewPoint}"
+        tools:text="Dew point at a moment is at 2°" />
 
     </LinearLayout>
 

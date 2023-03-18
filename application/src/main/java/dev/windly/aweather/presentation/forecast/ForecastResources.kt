@@ -11,6 +11,11 @@ import javax.inject.Inject
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
+/**
+ * Warning: As underestimating wind speed, rainfall or snowfall
+ * intensity might be dangerous, the respective values were <b>rounded up</b>
+ * to the next integer instead of approximating to the closest integer.
+ */
 @Reusable
 class ForecastResources @Inject constructor(
   @ApplicationContext private val context: Context,
@@ -88,11 +93,6 @@ class ForecastResources @Inject constructor(
    */
   fun windSpeed(forecast: CurrentWeather): CharSequence {
 
-    // Underestimating a wind speed can be dangerous.
-    //
-    // That's why, instead of rounding to the closest integer, the
-    // speed value was rounded up instead.
-
     val speed = ceil(forecast.wind.speed).roundToInt()
 
     // TODO: 17.03.2023
@@ -158,6 +158,26 @@ class ForecastResources @Inject constructor(
     val dewPoint = calculateDewPoint(temperature, humidity)
 
     return context.getString(R.string.dew_point_at, dewPoint)
+  }
+
+  /**
+   * Returns a text representation of rainfall.
+   */
+  fun rain(forecast: CurrentWeather): CharSequence {
+
+    val amount = ceil(forecast.rain?.threeHours ?: 0.0f).roundToInt()
+
+    return context.getString(R.string.rain_amount, amount)
+  }
+
+  /**
+   * Returns a text representation of snowfall.
+   */
+  fun snow(forecast: CurrentWeather): CharSequence {
+
+    val amount = ceil(forecast.snow?.threeHours ?: 0.0f).roundToInt()
+
+    return context.getString(R.string.snow_amount, amount)
   }
 
   private fun kph(): CharSequence = context.getString(R.string.kph)

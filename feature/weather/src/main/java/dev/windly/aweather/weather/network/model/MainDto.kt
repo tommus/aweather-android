@@ -55,13 +55,19 @@ data class MainDto(
 
   /**
    * Atmospheric pressure on the sea level in hPa.
+   *
+   * Warning: API does not mention this value as optional but
+   * apparently it might not be delivered because of unknown reason.
    */
   @Json(name = "sea_level")
-  val seaLevel: Int = 0,
+  val seaLevel: Int? = null,
 
   /**
    * Atmospheric pressure on the ground level in hPa.
+   *
+   * Warning: API does not mention this value as optional but
+   * apparently it might not be delivered because of unknown reason.
    */
   @Json(name = "grnd_level")
-  val groundLevel: Int = 0,
+  val groundLevel: Int? = null,
 )

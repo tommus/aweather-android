@@ -6,25 +6,30 @@
 
   <string name="hello">Hello world!</string>
 
-  <string name="degree">%d°</string>
+  <string name="degree" translatable="false">%d°</string>
   <string name="description_placeholder">No description</string>
   <string name="dew_point_at">Dew point at this moment is %d°</string>
   <string name="feels_like">Feels like</string>
-  <string name="hpa">%d hPa</string>
+  <string name="for_last_3h">For the last three hours</string>
+  <string name="hpa" translatable="false">%d hPa</string>
   <string name="humidity">Humidity</string>
-  <string name="humidity_percentage">%d%%</string>
+  <string name="humidity_percentage" translatable="false">%d%%</string>
   <string name="in_gusts_to">In gusts up to %d %s</string>
   <string name="kph">kph</string>
   <string name="mph">mph</string>
+  <string name="on_sea_level">On a sea level</string>
   <string name="pressure">Pressure</string>
   <string name="range">From %d° to %d°</string>
-  <string name="on_sea_level">On a sea level</string>
+  <string name="rain">Rain</string>
+  <string name="rain_amount" translatable="false">%d mm</string>
+  <string name="snow">Snow</string>
+  <string name="snow_amount" translatable="false">%d mm</string>
   <string name="sunrise">Sunrise</string>
   <string name="sunset">Sunset: %s</string>
   <string name="visibility">Visibility</string>
   <string name="visibility_distance">%d km</string>
   <string name="visibility_limitation">Supported up to 10 kilometers</string>
   <string name="wind">Wind</string>
-  <string name="wind_speed">%d %s</string>
+  <string name="wind_speed" translatable="false">%d %s</string>
 
 </resources>

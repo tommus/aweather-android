@@ -11,7 +11,7 @@ data class SysEmbedded(
   var id: Long = 0L,
 
   @ColumnInfo(name = "message")
-  var message: String = "",
+  var message: String? = null,
 
   @ColumnInfo(name = "country")
   var country: String = "",

@@ -23,8 +23,8 @@ data class MainEmbedded(
   var maximalTemperature: Float = 0.0f,
 
   @ColumnInfo(name = "sea_level")
-  var seaLevel: Int = 0,
+  var seaLevel: Int? = null,
 
   @ColumnInfo(name = "grnd_level")
-  var groundLevel: Int = 0,
+  var groundLevel: Int? = null,
 )

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.ModelAbstractBindingItem
 import dev.windly.aweather.R
 import dev.windly.aweather.databinding.ItemRecentBinding
-import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.geocoding.domain.model.Recent
 
-class RecentItem(location: Location) :
-  ModelAbstractBindingItem<Location, ItemRecentBinding>(location) {
+class RecentItem(recent: Recent) :
+  ModelAbstractBindingItem<Recent, ItemRecentBinding>(recent) {
 
   private var name: CharSequence? = null
 
@@ -16,7 +16,7 @@ class RecentItem(location: Location) :
     get() = R.id.itemRecent
 
   init {
-    identifier = location.id
+    identifier = recent.id
   }
 
   override fun createBinding(

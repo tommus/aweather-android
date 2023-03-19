@@ -9,7 +9,7 @@ import dev.windly.aweather.databinding.ItemSearchHeaderBinding
 class SearchHeaderItem : AbstractBindingItem<ItemSearchHeaderBinding>() {
 
   override val type: Int
-    get() = R.id.itemRecentHeader
+    get() = R.id.itemSearchHeader
 
   override var identifier: Long =
     R.id.itemRecentHeader.toLong()

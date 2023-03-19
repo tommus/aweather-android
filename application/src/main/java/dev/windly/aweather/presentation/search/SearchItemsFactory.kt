@@ -3,6 +3,7 @@ package dev.windly.aweather.presentation.search
 import com.mikepenz.fastadapter.GenericItem
 import dagger.hilt.android.scopes.FragmentScoped
 import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.geocoding.domain.model.Recent
 import dev.windly.aweather.presentation.search.recent.RecentHeaderItem
 import dev.windly.aweather.presentation.search.recent.RecentItem
 import dev.windly.aweather.presentation.search.result.SearchHeaderItem
@@ -21,7 +22,7 @@ class SearchItemsFactory @Inject constructor(
   fun create(state: SearchState): List<GenericItem> {
 
     val recentHeader = createRecentHeaderItem()
-    val recent = state.history.map(::createRecentItem)
+    val recent = state.recent.map(::createRecentItem)
 
     val foundHeader = createSearchHeaderItem()
     val found = state.results.map(::createSearchResultItem)
@@ -50,11 +51,11 @@ class SearchItemsFactory @Inject constructor(
     RecentHeaderItem()
 
   /**
-   * Creates [RecentItem] for the [Location].
+   * Creates [RecentItem] for the [Recent].
    */
-  private fun createRecentItem(location: Location): GenericItem =
-    RecentItem(location)
-      .withName(location.name)
+  private fun createRecentItem(recent: Recent): GenericItem =
+    RecentItem(recent)
+      .withName(recent.name)
 
   /**
    * Creates [SearchHeaderItem].

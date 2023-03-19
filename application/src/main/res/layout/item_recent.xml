@@ -19,7 +19,7 @@
     android:minHeight="32dp"
     android:orientation="horizontal"
     android:paddingHorizontal="12dp"
-    android:paddingVertical="4dp">
+    android:paddingVertical="16dp">
 
     <TextView
       style="@style/Aweather.Recent.Name"

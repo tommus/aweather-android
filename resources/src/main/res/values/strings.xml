@@ -19,6 +19,7 @@
   <string name="kph">kph</string>
   <string name="mph">mph</string>
   <string name="on_sea_level">On a sea level</string>
+  <string name="placeholder" translatable="false">-</string>
   <string name="pressure">Pressure</string>
   <string name="range">From %d° to %d°</string>
   <string name="rain">Rain</string>
@@ -32,5 +33,6 @@
   <string name="visibility_limitation">Supported up to 10 kilometers</string>
   <string name="wind">Wind</string>
   <string name="wind_speed" translatable="false">%d %s</string>
+  <string name="your_recent_search">Your recent searches</string>
 
 </resources>

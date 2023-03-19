@@ -10,9 +10,11 @@
 
   <color name="heliotrope">#B571FD</color>
   <color name="manatee">#9B9DA2</color>
+  <color name="robRoy">#EBD475</color>
   <color name="shark">#202329</color>
   <color name="sharkDark">#1A1C1E</color>
   <color name="spunPearl">#A7A6A9</color>
+  <color name="tundora">#404040</color>
   <color name="woodsmoke">#101014</color>
 
 </resources>

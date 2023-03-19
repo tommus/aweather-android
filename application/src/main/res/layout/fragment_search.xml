@@ -26,12 +26,13 @@
       android:layout_marginVertical="8dp">
 
       <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputView"
         style="@style/Aweather.Search.InputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/find_location"
-        android:inputType="phone"
-        android:text="@={viewModel.location}"
+        android:inputType="textCapWords"
+        android:text="@={viewModel.input}"
         tools:text="@string/find_location" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -41,7 +42,9 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
+      app:hasFixedSize="@{true}"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      tools:itemCount="7"
       tools:listitem="@layout/item_search_result" />
 
   </LinearLayout>

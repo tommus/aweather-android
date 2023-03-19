@@ -106,7 +106,9 @@ dependencies {
   implementation(libs.androidx.navigation.fragment.ktx)
   implementation(libs.androidx.navigation.ui.ktx)
 
+  implementation(libs.fastadapter)
   implementation(libs.fastadapter.binding)
+  implementation(libs.fastadapter.utils)
 
   implementation(libs.google.material)
 
@@ -115,6 +117,7 @@ dependencies {
 
   implementation(libs.kotlinx.coroutines.rx3)
 
+  implementation(libs.rx.binding)
   implementation(libs.rx.java)
 }
 

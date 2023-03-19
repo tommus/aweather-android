@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
   <eat-comment />
 
@@ -15,6 +15,7 @@
     <item name="boxCornerRadiusTopStart">24dp</item>
     <item name="boxStrokeWidth">0dp</item>
     <item name="boxStrokeWidthFocused">0dp</item>
+    <item name="endIconDrawable">@drawable/ic_clear</item>
     <item name="endIconMode">clear_text</item>
     <item name="endIconTint">@color/spunPearl</item>
     <item name="errorEnabled">true</item>
@@ -30,6 +31,40 @@
     <item name="android:textColorHint">@color/spunPearl</item>
     <item name="android:textSize">14sp</item>
     <item name="fontFamily">@font/chakra_petch</item>
+  </style>
+
+  <style name="Aweather.Search.Recent" />
+
+  <style name="Aweather.Search.Recent.Header">
+    <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:textAllCaps">true</item>
+    <item name="android:textSize">12sp</item>
+    <item name="fontFamily">@font/chakra_petch</item>
+  </style>
+
+  <style name="Aweather.Search.Result">
+    <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="fontFamily">@font/chakra_petch</item>
+  </style>
+
+  <style name="Aweather.Search.Result.Name">
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:lines">1</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
+  <style name="Aweather.Search.Result.Details">
+    <item name="android:ellipsize">end</item>
+    <item name="android:fontWeight" tools:targetApi="o">300</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:lines">1</item>
+    <item name="android:textColor">@color/manatee</item>
+    <item name="android:textSize">12sp</item>
+    <item name="fontWeight">300</item>
+  </style>
+
+  <style name="Aweather.Search.Result.Decor">
+    <item name="tint">@color/robRoy</item>
   </style>
 
 </resources>

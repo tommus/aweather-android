@@ -26,5 +26,6 @@
   <string name="visibility_distance">%d km</string>
   <string name="visibility_limitation">Obsługa do 10 kilometrów</string>
   <string name="wind">Wiatr</string>
+  <string name="your_recent_search">Twoje ostatnie wyszukiwania</string>
 
 </resources>

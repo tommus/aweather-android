@@ -62,7 +62,7 @@
       android:layout_weight="1" />
 
     <ImageView
-      style="@style/Aweather.Search.Result.Decor"
+      style="@style/Aweather.Search.Decor"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:contentDescription="@null"

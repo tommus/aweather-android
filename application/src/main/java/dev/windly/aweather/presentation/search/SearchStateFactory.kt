@@ -8,11 +8,11 @@ class SearchStateFactory @Inject constructor() {
 
   internal fun create(
     input: String,
-    results: SearchResults
+    results: SearchResults,
   ): SearchState =
     SearchState(
       input = input,
-      history = emptyList(),
+      recent = results.recent,
       results = results.locations,
     )
 }

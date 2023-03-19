@@ -2,6 +2,7 @@ package dev.windly.aweather.presentation.search
 
 import dev.windly.aweather.geocoding.SearchCriteria
 import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.geocoding.domain.model.Recent
 
 /**
  * Immutable data holder for the search results.
@@ -12,6 +13,7 @@ import dev.windly.aweather.geocoding.domain.model.Location
 data class SearchResults(
   val criteria: SearchCriteria,
   val locations: List<Location>,
+  val recent: List<Recent>,
 ) {
 
   companion object {
@@ -22,6 +24,7 @@ data class SearchResults(
     val Empty = SearchResults(
       criteria = SearchCriteria.Default,
       locations = emptyList(),
+      recent = emptyList(),
     )
   }
 }

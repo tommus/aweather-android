@@ -6,6 +6,7 @@
 
   <item name="itemRecent" type="id" />
   <item name="itemRecentHeader" type="id" />
+  <item name="itemSearchHeader" type="id" />
   <item name="itemSearchResult" type="id" />
 
 </resources>

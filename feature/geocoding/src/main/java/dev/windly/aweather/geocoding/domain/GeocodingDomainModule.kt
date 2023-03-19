@@ -15,6 +15,14 @@ object GeocodingDomainModule {
    * [SingletonComponent].
    */
   @[Provides Singleton]
-  internal fun mapper(): GeocodingMapper =
+  internal fun geocodingMapper(): GeocodingMapper =
     Mappers.getMapper(GeocodingMapper::class.java)
+
+  /**
+   * Instantiates the [RecentMapper] and scopes it to the
+   * [SingletonComponent].
+   */
+  @[Provides Singleton]
+  internal fun recentMapper(): RecentMapper =
+    Mappers.getMapper(RecentMapper::class.java)
 }

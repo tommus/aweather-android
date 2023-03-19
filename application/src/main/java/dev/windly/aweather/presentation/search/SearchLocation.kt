@@ -4,6 +4,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import dev.windly.aweather.geocoding.GeocodingRepository
 import dev.windly.aweather.geocoding.SearchCriteria
 import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.geocoding.domain.model.Recent
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.FlowableProcessor
@@ -41,6 +42,12 @@ class SearchLocation @Inject constructor(
   }
 
   /**
+   * Emits a raw [input] whenever user decides to change it.
+   */
+  fun input(): Flowable<String> =
+    input.hide()
+
+  /**
    * Emits new [SearchCriteria] whenever condition changes.
    */
   private fun criteria(): Flowable<SearchCriteria> =
@@ -60,10 +67,23 @@ class SearchLocation @Inject constructor(
     criteria().switchMap(::searchLocations)
 
   /**
+   * Searches for the recent locations that matches the search criteria.
+   */
+  private fun searchRecent(criteria: SearchCriteria): Flowable<List<Recent>> =
+    search.observeLastFiveRecent(criteria)
+
+  /**
+   * Searches for the last five recent locations that matches the
+   * search input.
+   */
+  private fun recent(): Flowable<List<Recent>> =
+    criteria().switchMap(::searchRecent)
+
+  /**
    * Emits a filtered [SearchResults] for the provided [SearchCriteria].
    */
   fun results(): Flowable<SearchResults> =
     Flowable
-      .combineLatest(criteria(), locations(), ::SearchResults)
+      .combineLatest(criteria(), locations(), recent(), ::SearchResults)
       .subscribeOn(Schedulers.computation())
 }

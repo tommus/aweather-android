@@ -33,4 +33,12 @@ object SearchPersistenceModule {
   @[Provides Singleton]
   internal fun locationDao(database: SearchDatabase): LocationDao =
     database.locationDao()
+
+  /**
+   * Adds [RecentDao] to the dependency graph so it will become
+   * injectable.
+   */
+  @[Provides Singleton]
+  internal fun recentDao(database: SearchDatabase): RecentDao =
+    database.recentDao()
 }

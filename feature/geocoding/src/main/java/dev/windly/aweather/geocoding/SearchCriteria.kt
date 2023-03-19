@@ -25,4 +25,9 @@ data class SearchCriteria(
       limit = DEFAULT_LIMIT,
     )
   }
+
+  /**
+   * Returns <code>true</code> for blank [input].
+   */
+  fun isBlankInput(): Boolean = input.isBlank()
 }

@@ -25,17 +25,45 @@
     <item name="startIconTint">@color/manatee</item>
   </style>
 
-  <style name="Aweather.Search.InputEditText">
+  <style name="Aweather.Search.InputEditText"
+    parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
     <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:padding">0dp</item>
     <item name="android:textColor">@color/spunPearl</item>
     <item name="android:textColorHint">@color/spunPearl</item>
     <item name="android:textSize">14sp</item>
+    <item name="android:theme">@style/Theme.Aweather.EditText</item>
     <item name="fontFamily">@font/chakra_petch</item>
   </style>
 
-  <style name="Aweather.Search.Recent" />
+  <style name="Aweather.Recent" />
 
-  <style name="Aweather.Search.Recent.Header">
+  <style name="Aweather.Recent.Decor">
+    <item name="tint">@color/robRoy</item>
+  </style>
+
+  <style name="Aweather.Recent.Header">
+    <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:textAllCaps">true</item>
+    <item name="android:textSize">12sp</item>
+    <item name="fontFamily">@font/chakra_petch</item>
+  </style>
+
+  <style name="Aweather.Recent.Name">
+    <item name="android:drawablePadding">12dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:lines">1</item>
+    <item name="android:textSize">14sp</item>
+    <item name="drawableStartCompat">@drawable/ic_recent</item>
+    <item name="drawableTint">@color/manatee</item>
+  </style>
+
+  <style name="Aweather.Search.Decor">
+    <item name="tint">@color/robRoy</item>
+  </style>
+
+  <style name="Aweather.Search.Header">
     <item name="android:fontFamily">@font/chakra_petch</item>
     <item name="android:textAllCaps">true</item>
     <item name="android:textSize">12sp</item>
@@ -61,10 +89,6 @@
     <item name="android:textColor">@color/manatee</item>
     <item name="android:textSize">12sp</item>
     <item name="fontWeight">300</item>
-  </style>
-
-  <style name="Aweather.Search.Result.Decor">
-    <item name="tint">@color/robRoy</item>
   </style>
 
 </resources>

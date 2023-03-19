@@ -11,6 +11,7 @@
   <string name="feels_like">Odczuwalna</string>
   <string name="for_last_3h">Przez ostatnie trzy godziny</string>
   <string name="find_location">Znajdź miasto</string>
+  <string name="found_locations">Znalezione miasta</string>
   <string name="humidity">Wilgotność</string>
   <string name="in_gusts_to">W porywach do %d %s</string>
   <string name="kph">km/h</string>

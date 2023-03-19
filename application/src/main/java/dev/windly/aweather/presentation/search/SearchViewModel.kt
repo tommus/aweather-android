@@ -5,7 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.presentation.search.SearchEvent.NavigateToForecast
+import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithLocation
+import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithRecent
+import dev.windly.aweather.reactive.RxCompletableObserver
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,12 +19,14 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.reactive.asFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
   private val factory: SearchStateFactory,
-  private val search: SearchLocation
+  private val history: StoreRecentLocation,
+  private val search: SearchLocation,
 ) : ViewModel(), DefaultLifecycleObserver {
 
   private val _navigation = Channel<SearchEvent>()
@@ -49,10 +54,26 @@ class SearchViewModel @Inject constructor(
         initialValue = SearchState.Empty
       )
 
-  internal fun onSearchResultClicked(location: Location) {
+  internal fun onRecentClicked(recent: Recent) {
     viewModelScope.launch {
-      _navigation.send(NavigateToForecast(location))
+      _navigation.send(NavigateWithRecent(recent))
     }
+  }
+
+  internal fun onSearchResultClicked(location: Location) {
+
+    val observer = RxCompletableObserver
+      .create().withOnError(::onSaveRecentError)
+
+    history.save(location).subscribe(observer)
+
+    viewModelScope.launch {
+      _navigation.send(NavigateWithLocation(location))
+    }
+  }
+
+  private fun onSaveRecentError(throwable: Throwable) {
+    Timber.e("An error occurred while saving recent location.", throwable)
   }
 
   init {

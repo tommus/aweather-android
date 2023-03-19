@@ -25,11 +25,14 @@
     <item name="startIconTint">@color/manatee</item>
   </style>
 
-  <style name="Aweather.Search.InputEditText">
+  <style name="Aweather.Search.InputEditText"
+    parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
     <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:padding">0dp</item>
     <item name="android:textColor">@color/spunPearl</item>
     <item name="android:textColorHint">@color/spunPearl</item>
     <item name="android:textSize">14sp</item>
+    <item name="android:theme">@style/Theme.Aweather.EditText</item>
     <item name="fontFamily">@font/chakra_petch</item>
   </style>
 

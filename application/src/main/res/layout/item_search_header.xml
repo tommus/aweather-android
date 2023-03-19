@@ -16,10 +16,10 @@
     tools:context=".presentation.MainActivity">
 
     <TextView
-      style="@style/Aweather.Recent.Header"
+      style="@style/Aweather.Search.Header"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/your_recent_search" />
+      android:text="@string/found_locations" />
 
   </LinearLayout>
 

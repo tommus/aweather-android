@@ -45,7 +45,7 @@
       app:hasFixedSize="@{true}"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       tools:itemCount="7"
-      tools:listitem="@layout/item_search_result" />
+      tools:listitem="@layout/item_search_flipper" />
 
   </LinearLayout>
 

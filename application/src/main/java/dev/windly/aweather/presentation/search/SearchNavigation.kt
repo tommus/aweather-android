@@ -14,10 +14,12 @@ class SearchNavigation @Inject constructor(fragment: Fragment) :
   /**
    * Navigates to the [ForecastFragment].
    */
-  fun navigateToForecast(latitude: Float, longitude: Float) {
+  fun navigateToForecast(latitude: Double, longitude: Double) {
 
     val action = actionForecast(
-      latitude = latitude, longitude = longitude)
+      latitude = latitude.toFloat(),
+      longitude = longitude.toFloat(),
+    )
 
     navController.navigate(action)
   }

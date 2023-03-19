@@ -4,10 +4,15 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.presentation.search.SearchEvent.NavigateToForecast
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted.Companion.Eagerly
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.reactive.asFlow
@@ -18,6 +23,11 @@ class SearchViewModel @Inject constructor(
   private val factory: SearchStateFactory,
   private val search: SearchLocation
 ) : ViewModel(), DefaultLifecycleObserver {
+
+  private val _navigation = Channel<SearchEvent>()
+
+  internal val navigation: Flow<SearchEvent> =
+    _navigation.receiveAsFlow()
 
   val input: MutableStateFlow<String> =
     MutableStateFlow("")
@@ -38,6 +48,12 @@ class SearchViewModel @Inject constructor(
         started = Eagerly,
         initialValue = SearchState.Empty
       )
+
+  internal fun onSearchResultClicked(location: Location) {
+    viewModelScope.launch {
+      _navigation.send(NavigateToForecast(location))
+    }
+  }
 
   init {
     viewModelScope.launch {

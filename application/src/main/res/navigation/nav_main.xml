@@ -5,9 +5,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_main"
-  app:startDestination="@id/forecast_fragment">
-
-  <!-- TODO: Restore start fragment as start destination once finished debugging. -->
+  app:startDestination="@id/search_fragment">
 
   <fragment
     android:id="@+id/start_fragment"
@@ -40,17 +38,13 @@
       android:id="@+id/actionSearch"
       app:destination="@+id/search_fragment" />
 
-    <!-- TODO: Remove default values once UI finished. -->
-
     <argument
       android:name="latitude"
-      android:defaultValue="53.0103"
       app:argType="float"
       app:nullable="false" />
 
     <argument
       android:name="longitude"
-      android:defaultValue="18.6048"
       app:argType="float"
       app:nullable="false" />
 

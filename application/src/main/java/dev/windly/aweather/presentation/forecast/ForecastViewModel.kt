@@ -28,7 +28,8 @@ import javax.inject.Inject
 class ForecastViewModel @Inject constructor(
   private val arguments: ForecastArguments,
   private val factory: ForecastStateFactory,
-  private val repository: WeatherRepository
+  private val forecast: ForecastWeather,
+  private val repository: WeatherRepository,
 ) : ViewModel(), DefaultLifecycleObserver {
 
   private val _navigation = Channel<ForecastEvent>()
@@ -50,8 +51,7 @@ class ForecastViewModel @Inject constructor(
     CompositeDisposable()
 
   private val _forecast: StateFlow<CurrentWeather> =
-    repository
-      .observeWeather(perCriteria()).asFlow()
+    forecast.observe().asFlow()
       .stateIn(
         scope = viewModelScope,
         started = Eagerly,

@@ -13,14 +13,6 @@ data class LocationDto(
   val name: String = "",
 
   /**
-   * Name of the found location in different languages.
-   * [Pair.first] - a language code.
-   * [Pair.second] - a translated location name.
-   */
-  @Json(name = "local_names")
-  val localNames: List<Pair<String, String>>? = null,
-
-  /**
    * Geographical coordinates of the found location (latitude).
    */
   @Json(name = "lat")

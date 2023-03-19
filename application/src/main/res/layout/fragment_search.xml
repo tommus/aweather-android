@@ -2,25 +2,51 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
-  <data />
+  <data>
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+    <variable
+      name="viewModel"
+      type="dev.windly.aweather.presentation.search.SearchViewModel" />
+
+  </data>
+
+  <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
-      android:id="@+id/helloWorldView"
-      android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+      style="@style/Aweather.Search.InputLayout"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="TODO:\nSearch View"
-      android:textAlignment="center"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      android:layout_marginVertical="8dp">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputView"
+        style="@style/Aweather.Search.InputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/find_location"
+        android:inputType="textCapWords"
+        android:text="@={viewModel.input}"
+        tools:text="@string/find_location" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/resultsView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      app:hasFixedSize="@{true}"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      tools:itemCount="7"
+      tools:listitem="@layout/item_search_result" />
+
+  </LinearLayout>
 
 </layout>

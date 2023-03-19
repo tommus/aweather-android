@@ -2,12 +2,13 @@ package dev.windly.aweather.presentation.forecast
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.navGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.windly.aweather.R
 import dev.windly.aweather.databinding.FragmentForecastBinding
 import dev.windly.aweather.mvvm.fragment.BaseFragment
+import dev.windly.aweather.presentation.forecast.ForecastEvent.NavigateToFindLocation
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -17,7 +18,7 @@ class ForecastFragment :
   @Inject lateinit var navigation: ForecastNavigation
 
   override val viewModel: ForecastViewModel
-    by navGraphViewModels(R.id.nav_main) { defaultViewModelProviderFactory }
+    by viewModels { defaultViewModelProviderFactory }
 
   override val layoutRes: Int
     get() = R.layout.fragment_forecast
@@ -38,7 +39,7 @@ class ForecastFragment :
 
   private fun handleNavigation(event: ForecastEvent) {
     when (event) {
-      ForecastEvent.NavigateToFindLocation ->
+      is NavigateToFindLocation ->
         navigation.navigateToFindLocation()
     }
   }

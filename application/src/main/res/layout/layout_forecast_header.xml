@@ -2,7 +2,6 @@
 
 <layout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
@@ -13,22 +12,21 @@
 
   </data>
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
     android:paddingHorizontal="16dp">
 
     <LinearLayout
-      android:id="@+id/view_start"
       android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:gravity="start"
-      android:orientation="vertical"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/view_end"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      android:layout_height="match_parent"
+      android:layout_marginStart="0dp"
+      android:layout_marginEnd="8dp"
+      android:layout_weight="1"
+      android:gravity="center_vertical"
+      android:orientation="vertical">
 
       <TextView
         style="@style/Aweather.Forecast.Header.Temperature"
@@ -56,18 +54,16 @@
     </LinearLayout>
 
     <ImageView
-      android:id="@+id/view_end"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="0dp"
+      android:layout_weight="1"
       android:adjustViewBounds="true"
       android:contentDescription="@null"
       android:src="@{state.icon}"
-      app:layout_constraintBottom_toBottomOf="@+id/view_start"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/view_start"
-      app:layout_constraintTop_toTopOf="@id/view_start"
       tools:src="@drawable/weather_01d" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  </LinearLayout>
 
 </layout>

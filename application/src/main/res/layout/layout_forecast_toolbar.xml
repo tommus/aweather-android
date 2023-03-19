@@ -19,14 +19,14 @@
     android:padding="16dp">
 
     <TextView
-      android:id="@+id/view_location"
+      android:id="@+id/locationView"
       style="@style/Aweather.Forecast.Header.Location"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@{viewModel.state.name}"
       app:drawableStartCompat="@drawable/ic_location"
-      app:layout_constraintBottom_toTopOf="@+id/view_date"
-      app:layout_constraintEnd_toStartOf="@+id/view_icon"
+      app:layout_constraintBottom_toTopOf="@+id/dateView"
+      app:layout_constraintEnd_toStartOf="@+id/findView"
       app:layout_constraintHorizontal_bias="0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
       tools:text="Hyrule" />
 
     <TextView
-      android:id="@+id/view_date"
+      android:id="@+id/dateView"
       style="@style/Aweather.Forecast.Header.Date"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -43,14 +43,14 @@
       android:layout_marginBottom="0dp"
       android:text="@{viewModel.state.date}"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/view_icon"
+      app:layout_constraintEnd_toStartOf="@+id/findView"
       app:layout_constraintHorizontal_chainStyle="spread_inside"
-      app:layout_constraintStart_toStartOf="@+id/view_location"
-      app:layout_constraintTop_toBottomOf="@+id/view_location"
+      app:layout_constraintStart_toStartOf="@+id/locationView"
+      app:layout_constraintTop_toBottomOf="@+id/locationView"
       tools:text="12 September, Sunday" />
 
     <com.google.android.material.button.MaterialButton
-      android:id="@+id/view_icon"
+      android:id="@+id/findView"
       style="@style/Aweather.Forecast.Header.Button"
       android:layout_width="52dp"
       android:layout_height="52dp"
@@ -58,7 +58,7 @@
       app:icon="@drawable/ic_list"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/view_date"
+      app:layout_constraintStart_toEndOf="@+id/dateView"
       app:layout_constraintTop_toTopOf="parent" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>

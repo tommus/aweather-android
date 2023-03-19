@@ -16,8 +16,7 @@ interface GeocodingRepository {
   fun downloadLocations(criteria: SearchCriteria): Completable
 
   /**
-   * Observes all persisted [Location]s that also matches the
-   * [SearchCriteria].
+   * Observes all recently retrieved [Location]s.
    */
-  fun observeLocations(criteria: SearchCriteria): Flowable<List<Location>>
+  fun observeLocations(): Flowable<List<Location>>
 }

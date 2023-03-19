@@ -9,6 +9,7 @@
   <string name="degree" translatable="false">%d°</string>
   <string name="description_placeholder">No description</string>
   <string name="dew_point_at">Dew point at this moment is %d°</string>
+  <string name="enter_something">Enter something…</string>
   <string name="feels_like">Feels like</string>
   <string name="for_last_3h">For the last three hours</string>
   <string name="find_location">Find location</string>
@@ -31,6 +32,7 @@
   <string name="snow_amount" translatable="false">%d mm</string>
   <string name="sunrise">Sunrise</string>
   <string name="sunset">Sunset: %s</string>
+  <string name="validation_error">Validation error</string>
   <string name="visibility">Visibility</string>
   <string name="visibility_distance">%d km</string>
   <string name="visibility_limitation">Supported up to 10 kilometers</string>

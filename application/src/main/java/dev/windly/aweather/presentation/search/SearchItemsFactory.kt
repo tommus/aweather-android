@@ -22,6 +22,14 @@ class SearchItemsFactory @Inject constructor(
    */
   fun create(state: SearchState): List<GenericItem> {
 
+    if (state.input.isBlank()) {
+      return listOf(createPromptPlaceholder())
+    }
+
+    if (!state.valid) {
+      return listOf(createValidationErrorPlaceholder())
+    }
+
     val items = mutableListOf<GenericItem>()
 
     if (state.recent.isNotEmpty()) {
@@ -33,18 +41,35 @@ class SearchItemsFactory @Inject constructor(
 
     when (state.results.isNotEmpty()) {
       true -> items += state.results.map(::createSearchResultItem)
-      false -> items += createPlaceholderItem()
+      false -> items += createNoResultsPlaceholder()
     }
 
     return items
   }
 
   /**
+   * Creates [PlaceholderItem] that encourages user to enter something
+   * in a search field.
+   */
+  private fun createPromptPlaceholder(): GenericItem =
+    PlaceholderItem()
+      .withTitle(resources.enterSomething())
+
+  /**
    * Creates [PlaceholderItem] that hints the user there is no results
    * matching his/her search criteria.
    */
-  private fun createPlaceholderItem(): GenericItem =
+  private fun createNoResultsPlaceholder(): GenericItem =
     PlaceholderItem()
+      .withTitle(resources.noResults())
+
+  /**
+   * Creates [PlaceholderItem] that hints the user he/she entered the
+   * incorrect search input.
+   */
+  private fun createValidationErrorPlaceholder(): GenericItem =
+    PlaceholderItem()
+      .withTitle(resources.validationError())
 
   /**
    * Creates [RecentHeaderItem].

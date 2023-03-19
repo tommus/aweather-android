@@ -20,6 +20,12 @@ class LocationDomainRepository @Inject constructor(
 ) : LocationRepository {
 
   override fun download(criteria: SearchLocationCriteria): Completable =
+    when (criteria.isBlankInput()) {
+      true -> doNotDownload()
+      false -> downloadLocations(criteria)
+    }.subscribeOn(Schedulers.io())
+
+  private fun downloadLocations(criteria: SearchLocationCriteria): Completable =
     api
       .getCoordinatesByLocationName(
         query = criteria.input,
@@ -30,6 +36,9 @@ class LocationDomainRepository @Inject constructor(
       .map(mapper::mapDtoListToEntityList)
       .flatMapCompletable(::replaceLocations)
       .subscribeOn(Schedulers.io())
+
+  private fun doNotDownload(): Completable =
+    Completable.complete()
 
   private fun replaceLocations(entities: List<LocationEntity>): Completable =
     Completable

@@ -12,6 +12,7 @@ import dev.windly.aweather.recent.domain.model.Recent
  */
 data class SearchResults(
   val criteria: SearchLocationCriteria,
+  val valid: Boolean,
   val locations: List<Location>,
   val recent: List<Recent>,
 ) {
@@ -23,6 +24,7 @@ data class SearchResults(
      */
     val Empty = SearchResults(
       criteria = SearchLocationCriteria.Default,
+      valid = false,
       locations = emptyList(),
       recent = emptyList(),
     )

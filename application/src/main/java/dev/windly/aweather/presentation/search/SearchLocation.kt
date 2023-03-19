@@ -18,6 +18,7 @@ import javax.inject.Inject
 class SearchLocation @Inject constructor(
   private val location: LocationRepository,
   private val recent: RecentRepository,
+  private val validator: SearchInputValidator,
 ) {
 
   private companion object {
@@ -37,6 +38,10 @@ class SearchLocation @Inject constructor(
   private val input: FlowableProcessor<String> =
     BehaviorProcessor.createDefault(QUERY)
 
+
+  private val valid: Flowable<Boolean> =
+    input.map(validator::test)
+
   /**
    * Accepts new search input [value].
    */
@@ -47,8 +52,13 @@ class SearchLocation @Inject constructor(
   /**
    * Emits a raw [input] whenever user decides to change it.
    */
-  fun input(): Flowable<String> =
-    input.hide()
+  fun input(): Flowable<String> = input.hide()
+
+  /**
+   * Delivers an information whether the entered input is considered
+   * a valid location name.
+   */
+  private fun valid(): Flowable<Boolean> = valid.hide()
 
   /**
    * Emits new [SearchLocationCriteria] whenever condition changes.
@@ -90,6 +100,11 @@ class SearchLocation @Inject constructor(
    */
   fun results(): Flowable<SearchResults> =
     Flowable
-      .combineLatest(locationCriteria(), locations(), recent(), ::SearchResults)
-      .subscribeOn(Schedulers.computation())
+      .combineLatest(
+        locationCriteria(),
+        valid(),
+        locations(),
+        recent(),
+        ::SearchResults
+      ).subscribeOn(Schedulers.computation())
 }

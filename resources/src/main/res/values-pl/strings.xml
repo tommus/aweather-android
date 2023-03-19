@@ -8,6 +8,7 @@
 
   <string name="description_placeholder">Brak szczegółów</string>
   <string name="dew_point_at">Punkt rosy w tej chwili wynosi %d°</string>
+  <string name="enter_something">Wpisz coś…</string>
   <string name="feels_like">Odczuwalna</string>
   <string name="for_last_3h">Przez ostatnie trzy godziny</string>
   <string name="find_location">Znajdź miasto</string>
@@ -25,6 +26,7 @@
   <string name="snow">Śnieg</string>
   <string name="sunrise">Wschód słońca</string>
   <string name="sunset">Zachód: %s</string>
+  <string name="validation_error">Błąd walidacji</string>
   <string name="visibility">Widoczność</string>
   <string name="visibility_distance">%d km</string>
   <string name="visibility_limitation">Obsługa do 10 kilometrów</string>

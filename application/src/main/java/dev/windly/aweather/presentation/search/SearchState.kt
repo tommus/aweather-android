@@ -5,6 +5,7 @@ import dev.windly.aweather.recent.domain.model.Recent
 
 data class SearchState(
   val input: String = "",
+  val valid: Boolean = false,
   val recent: List<Recent> = emptyList(),
   val results: List<Location> = emptyList(),
 ) {

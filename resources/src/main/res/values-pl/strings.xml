@@ -4,8 +4,6 @@
 
   <eat-comment />
 
-  <string name="hello">Witaj świecie!</string>
-
   <string name="description_placeholder">Brak szczegółów</string>
   <string name="dew_point_at">Punkt rosy w tej chwili wynosi %d°</string>
   <string name="enter_something">Wpisz coś…</string>

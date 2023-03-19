@@ -78,6 +78,7 @@ class SearchFragment :
   }
 
   private fun handleNavigation(event: SearchEvent) {
+
     when (event) {
       is NavigateWithRecent ->
         navigation.navigateToForecast(

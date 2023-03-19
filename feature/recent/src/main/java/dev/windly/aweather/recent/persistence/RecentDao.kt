@@ -8,6 +8,7 @@ import androidx.room.Query
 import dev.windly.aweather.recent.persistence.model.RecentEntity
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Single
 
 @Dao
 interface RecentDao {
@@ -23,6 +24,16 @@ interface RecentDao {
     LIMIT 5
   """)
   fun observeLastFive(input: String): Flowable<List<RecentEntity>>
+
+  @Query(value = """
+    SELECT * FROM recents 
+    ORDER BY id DESC 
+    LIMIT 1
+  """)
+  fun retrieveLatest(): Single<RecentEntity>
+
+  @Query(value = "SELECT COUNT(id) > 0 FROM recents")
+  fun isNotEmpty(): Single<Boolean>
 
   @Query(value = "DELETE FROM recents")
   fun deleteAll(): Completable

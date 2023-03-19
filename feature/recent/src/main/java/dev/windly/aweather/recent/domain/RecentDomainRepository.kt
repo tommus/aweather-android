@@ -6,6 +6,7 @@ import dev.windly.aweather.recent.domain.model.Recent
 import dev.windly.aweather.recent.persistence.RecentDao
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -35,4 +36,13 @@ class RecentDomainRepository @Inject constructor(
 
   private fun noRecentLocations(): Flowable<List<Recent>> =
     Flowable.just(emptyList())
+
+  override fun retrieveLatest(): Single<Recent> =
+    dao.retrieveLatest()
+      .map(mapper::mapEntityToDomain)
+      .subscribeOn(Schedulers.io())
+
+  override fun isNotEmpty(): Single<Boolean> =
+    dao.isNotEmpty()
+      .subscribeOn(Schedulers.io())
 }

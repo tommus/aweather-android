@@ -34,13 +34,6 @@ class ForecastViewModel @Inject constructor(
 
   private val _navigation = Channel<ForecastEvent>()
 
-  /**
-   * Asynchronously emits events that relates to the navigation between
-   * the screens.
-   *
-   * Observer of this stream should subscribe to this flow and perform
-   * navigation operations on behalf of the user.
-   */
   internal val navigation: Flow<ForecastEvent> =
     _navigation.receiveAsFlow()
 

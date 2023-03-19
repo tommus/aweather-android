@@ -3,6 +3,7 @@ package dev.windly.aweather.presentation.search
 import com.mikepenz.fastadapter.GenericItem
 import dagger.hilt.android.scopes.FragmentScoped
 import dev.windly.aweather.location.domain.model.Location
+import dev.windly.aweather.presentation.search.placeholder.PlaceholderItem
 import dev.windly.aweather.presentation.search.recent.RecentHeaderItem
 import dev.windly.aweather.presentation.search.recent.RecentItem
 import dev.windly.aweather.presentation.search.result.SearchHeaderItem
@@ -21,28 +22,29 @@ class SearchItemsFactory @Inject constructor(
    */
   fun create(state: SearchState): List<GenericItem> {
 
-    val recentHeader = createRecentHeaderItem()
-    val recent = state.recent.map(::createRecentItem)
-
-    val foundHeader = createSearchHeaderItem()
-    val found = state.results.map(::createSearchResultItem)
-
     val items = mutableListOf<GenericItem>()
 
-    if (recent.isNotEmpty()) {
-      items += recentHeader
-      items += recent
+    if (state.recent.isNotEmpty()) {
+      items += createRecentHeaderItem()
+      items += state.recent.map(::createRecentItem)
     }
 
-    // TODO: 19.03.2023 Empty placeholder.
+    items += createSearchHeaderItem()
 
-    if (found.isNotEmpty()) {
-      items += foundHeader
-      items += found
+    when (state.results.isNotEmpty()) {
+      true -> items += state.results.map(::createSearchResultItem)
+      false -> items += createPlaceholderItem()
     }
 
     return items
   }
+
+  /**
+   * Creates [PlaceholderItem] that hints the user there is no results
+   * matching his/her search criteria.
+   */
+  private fun createPlaceholderItem(): GenericItem =
+    PlaceholderItem()
 
   /**
    * Creates [RecentHeaderItem].

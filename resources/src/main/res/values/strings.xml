@@ -19,6 +19,8 @@
   <string name="in_gusts_to">In gusts up to %d %s</string>
   <string name="kph">kph</string>
   <string name="mph">mph</string>
+  <string name="no_results_found">No results found</string>
+  <string name="no_results_prompt">Please make sure you have entered\nthe search input correctly.</string>
   <string name="on_sea_level">On a sea level</string>
   <string name="placeholder" translatable="false">-</string>
   <string name="pressure">Pressure</string>

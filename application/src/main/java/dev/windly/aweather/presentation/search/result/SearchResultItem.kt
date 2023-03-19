@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.ModelAbstractBindingItem
 import dev.windly.aweather.R
 import dev.windly.aweather.databinding.ItemSearchResultBinding
-import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.location.domain.model.Location
 
 class SearchResultItem(location: Location) :
   ModelAbstractBindingItem<Location, ItemSearchResultBinding>(location) {

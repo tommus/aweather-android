@@ -9,13 +9,13 @@ import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import dev.windly.aweather.R
 import dev.windly.aweather.databinding.FragmentSearchBinding
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.domain.model.Location
 import dev.windly.aweather.mvvm.fragment.BaseFragment
 import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithLocation
 import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithRecent
 import dev.windly.aweather.presentation.search.recent.ClickRecent
 import dev.windly.aweather.presentation.search.result.ClickSearchResult
+import dev.windly.aweather.recent.domain.model.Recent
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

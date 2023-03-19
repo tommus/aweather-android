@@ -2,12 +2,12 @@ package dev.windly.aweather.presentation.search
 
 import com.mikepenz.fastadapter.GenericItem
 import dagger.hilt.android.scopes.FragmentScoped
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.domain.model.Location
 import dev.windly.aweather.presentation.search.recent.RecentHeaderItem
 import dev.windly.aweather.presentation.search.recent.RecentItem
 import dev.windly.aweather.presentation.search.result.SearchHeaderItem
 import dev.windly.aweather.presentation.search.result.SearchResultItem
+import dev.windly.aweather.recent.domain.model.Recent
 import javax.inject.Inject
 
 @FragmentScoped

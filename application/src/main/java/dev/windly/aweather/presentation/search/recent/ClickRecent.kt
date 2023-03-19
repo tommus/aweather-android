@@ -6,7 +6,7 @@ import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.listeners.ClickEventHook
 import dev.windly.aweather.base.viewbinding.asBinding
 import dev.windly.aweather.databinding.ItemRecentBinding
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.recent.domain.model.Recent
 
 class ClickRecent(private val listener: Listener) :
   ClickEventHook<RecentItem>() {

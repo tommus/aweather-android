@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
 import dev.windly.aweather.ci.Application.packageName
-import dev.windly.aweather.ci.Build
 import dev.windly.aweather.ci.Build.Android
 import dev.windly.aweather.ci.Build.Version
 import dev.windly.aweather.ci.Proguard.CONSUMER

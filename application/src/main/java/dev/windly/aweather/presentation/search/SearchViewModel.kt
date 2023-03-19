@@ -4,11 +4,11 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.domain.model.Location
 import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithLocation
 import dev.windly.aweather.presentation.search.SearchEvent.NavigateWithRecent
 import dev.windly.aweather.reactive.RxCompletableObserver
+import dev.windly.aweather.recent.domain.model.Recent
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

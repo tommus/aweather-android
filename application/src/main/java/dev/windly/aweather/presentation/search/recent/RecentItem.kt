@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.mikepenz.fastadapter.binding.ModelAbstractBindingItem
 import dev.windly.aweather.R
 import dev.windly.aweather.databinding.ItemRecentBinding
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.recent.domain.model.Recent
 
 class RecentItem(recent: Recent) :
   ModelAbstractBindingItem<Recent, ItemRecentBinding>(recent) {

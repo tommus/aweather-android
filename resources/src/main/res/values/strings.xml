@@ -11,6 +11,7 @@
   <string name="dew_point_at">Dew point at this moment is %d°</string>
   <string name="feels_like">Feels like</string>
   <string name="for_last_3h">For the last three hours</string>
+  <string name="find_location">Find location</string>
   <string name="hpa" translatable="false">%d hPa</string>
   <string name="humidity">Humidity</string>
   <string name="humidity_percentage" translatable="false">%d%%</string>

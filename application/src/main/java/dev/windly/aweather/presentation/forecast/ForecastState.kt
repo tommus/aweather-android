@@ -27,7 +27,7 @@ data class ForecastState(
   companion object {
 
     /**
-     * Default representation of a [ForecastState].
+     * Default representation of the [ForecastState].
      */
     val Empty = ForecastState()
   }

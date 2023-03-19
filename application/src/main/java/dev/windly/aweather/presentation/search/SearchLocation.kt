@@ -30,17 +30,6 @@ class SearchLocation @Inject constructor(
     private const val QUERY = ""
   }
 
-  /**
-   * Immutable data holder for the search results.
-   *
-   * Additionally it contains [SearchCriteria] so it's possible
-   * for example to highlight the original search phrase.
-   */
-  data class SearchResults(
-    val criteria: SearchCriteria,
-    val locations: List<Location>,
-  )
-
   private val input: FlowableProcessor<String> =
     BehaviorProcessor.createDefault(QUERY)
 

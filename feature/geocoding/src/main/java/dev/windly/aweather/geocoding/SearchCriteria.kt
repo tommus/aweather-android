@@ -7,4 +7,16 @@ package dev.windly.aweather.geocoding
 data class SearchCriteria(
   val input: String,
   val limit: Int? = null
-)
+) {
+
+  companion object {
+
+    /**
+     * Default representation of the [SearchCriteria].
+     */
+    val Default = SearchCriteria(
+      input = "",
+      limit = null,
+    )
+  }
+}

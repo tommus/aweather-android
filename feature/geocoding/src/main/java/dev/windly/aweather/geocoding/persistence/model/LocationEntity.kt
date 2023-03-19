@@ -11,15 +11,12 @@ import androidx.room.PrimaryKey
 )
 data class LocationEntity(
 
-  @PrimaryKey
+  @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "id")
-  var id: Long = 0,
+  var id: Long = 0L,
 
   @ColumnInfo(name = "name")
   var name: String = "",
-
-  // TODO: 13.03.2023 Create reference table for the local names.
-  // var localNames: List<Pair<String, String>>? = null,
 
   @ColumnInfo(name = "latitude")
   var latitude: Double = 0.0,

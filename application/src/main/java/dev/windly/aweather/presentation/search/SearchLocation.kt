@@ -1,6 +1,6 @@
 package dev.windly.aweather.presentation.search
 
-import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 import dev.windly.aweather.geocoding.GeocodingRepository
 import dev.windly.aweather.geocoding.SearchCriteria
 import dev.windly.aweather.geocoding.domain.model.Location
@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import javax.inject.Inject
 
-@ActivityRetainedScoped
+@ViewModelScoped
 class SearchLocation @Inject constructor(
   private val search: GeocodingRepository
 ) {
@@ -22,24 +22,13 @@ class SearchLocation @Inject constructor(
      * Adds a slight delay between actions so the search won't
      * be queried too often.
      */
-    private const val DELAY = 100L /* ms */
+    private const val DELAY = 300L /* ms */
 
     /**
      * Initially, search field is empty.
      */
     private const val QUERY = ""
   }
-
-  /**
-   * Immutable data holder for the search results.
-   *
-   * Additionally it contains [SearchCriteria] so it's possible
-   * for example to highlight the original search phrase.
-   */
-  data class SearchResults(
-    val criteria: SearchCriteria,
-    val locations: List<Location>,
-  )
 
   private val input: FlowableProcessor<String> =
     BehaviorProcessor.createDefault(QUERY)
@@ -62,7 +51,7 @@ class SearchLocation @Inject constructor(
    */
   private fun searchLocations(criteria: SearchCriteria): Flowable<List<Location>> =
     search.downloadLocations(criteria)
-      .andThen(search.observeLocations(criteria))
+      .andThen(search.observeLocations())
 
   /**
    * Searches for all the results that matches the search criteria.

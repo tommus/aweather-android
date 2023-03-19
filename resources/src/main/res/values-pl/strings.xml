@@ -10,6 +10,7 @@
   <string name="dew_point_at">Punkt rosy w tej chwili wynosi %d°</string>
   <string name="feels_like">Odczuwalna</string>
   <string name="for_last_3h">Przez ostatnie trzy godziny</string>
+  <string name="find_location">Znajdź miasto</string>
   <string name="humidity">Wilgotność</string>
   <string name="in_gusts_to">W porywach do %d %s</string>
   <string name="kph">km/h</string>
@@ -25,5 +26,6 @@
   <string name="visibility_distance">%d km</string>
   <string name="visibility_limitation">Obsługa do 10 kilometrów</string>
   <string name="wind">Wiatr</string>
+  <string name="your_recent_search">Twoje ostatnie wyszukiwania</string>
 
 </resources>

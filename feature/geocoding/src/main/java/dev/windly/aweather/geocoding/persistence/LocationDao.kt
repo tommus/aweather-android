@@ -18,18 +18,9 @@ interface LocationDao {
 
   @Query(value = """
     SELECT * FROM locations
-    WHERE name LIKE :query
     ORDER BY id ASC
   """)
-  fun observeLocations(query: String): Flowable<List<LocationEntity>>
-
-  @Query(value = """
-    SELECT * FROM locations
-    WHERE name LIKE :query
-    ORDER BY id ASC
-    LIMIT :limit
-  """)
-  fun observeLocations(query: String, limit: Int): Flowable<List<LocationEntity>>
+  fun observeLocations(): Flowable<List<LocationEntity>>
 
   @Query(value = "DELETE FROM locations")
   fun deleteAll(): Completable

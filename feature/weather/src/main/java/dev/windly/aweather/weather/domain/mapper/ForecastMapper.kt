@@ -1,5 +1,6 @@
 package dev.windly.aweather.weather.domain.mapper
 
+import dev.windly.aweather.weather.domain.model.Coord
 import dev.windly.aweather.weather.network.model.CurrentWeatherDto
 import dev.windly.aweather.weather.persistence.model.WeatherEntity
 import javax.inject.Inject
@@ -20,4 +21,13 @@ class ForecastMapper @Inject constructor(
     weather
       .mapDtoListToEntityList(dto.weather)
       .onEach { it.currentId = dto.id }
+
+  /**
+   * Maps the [CurrentWeatherDto.coordinates] as a [Coord] for later caching.
+   */
+  fun mapCoordinates(dto: CurrentWeatherDto): Coord =
+    Coord(
+      latitude = dto.coordinates.latitude.toFloat(),
+      longitude = dto.coordinates.longitude.toFloat(),
+    )
 }

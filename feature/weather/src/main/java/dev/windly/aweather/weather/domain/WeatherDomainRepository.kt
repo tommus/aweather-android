@@ -2,6 +2,7 @@ package dev.windly.aweather.weather.domain
 
 import dev.windly.aweather.configuration.Configuration
 import dev.windly.aweather.weather.SearchCriteria
+import dev.windly.aweather.weather.TrimmedCoordinates
 import dev.windly.aweather.weather.WeatherRepository
 import dev.windly.aweather.weather.domain.mapper.ForecastMapper
 import dev.windly.aweather.weather.domain.model.CurrentWeather
@@ -18,6 +19,7 @@ class WeatherDomainRepository @Inject constructor(
   private val configuration: Configuration,
   private val dao: CurrentWeatherDao,
   private val mapper: ForecastMapper,
+  private val trimmed: TrimmedCoordinates,
 ) : WeatherRepository {
 
   override fun downloadForecast(criteria: SearchCriteria): Completable =
@@ -29,22 +31,22 @@ class WeatherDomainRepository @Inject constructor(
         units = criteria.units,
         appId = configuration.openWeatherAppId(),
       )
-      .flatMapCompletable(::saveForecast)
+      .flatMapCompletable(::cacheForecast)
       .subscribeOn(Schedulers.io())
 
-  private fun saveForecast(dto: CurrentWeatherDto): Completable =
-    Completable
-      .fromAction {
-        val forecast = mapper.current.mapDtoToEntity(dto)
-        val descriptions = mapper.mapDescriptions(dto)
-        dao.insert(forecast, descriptions)
-      }
-      .subscribeOn(Schedulers.io())
+  private fun cacheForecast(dto: CurrentWeatherDto): Completable =
+    Completable.fromAction {
+      val forecast = mapper.current.mapDtoToEntity(dto)
+      val coordinates = mapper.mapCoordinates(dto)
+      val descriptions = mapper.mapDescriptions(dto)
+      dao.insert(forecast, descriptions)
+      trimmed.accept(coordinates)
+    }
 
   override fun observeWeather(criteria: SearchCriteria): Flowable<CurrentWeather> =
     dao.observeWeather(
       latitude = criteria.latitude,
-      longitude = criteria.longitude
+      longitude = criteria.longitude,
     )
       .map(mapper.current::mapEntityToDomain)
       .subscribeOn(Schedulers.io())

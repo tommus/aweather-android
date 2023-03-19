@@ -1,8 +1,8 @@
 package dev.windly.aweather.geocoding.domain
 
 import dev.windly.aweather.configuration.Configuration
-import dev.windly.aweather.geocoding.SearchCriteria
 import dev.windly.aweather.geocoding.GeocodingRepository
+import dev.windly.aweather.geocoding.SearchCriteria
 import dev.windly.aweather.geocoding.domain.model.Location
 import dev.windly.aweather.geocoding.network.GeocodingApi
 import dev.windly.aweather.geocoding.persistence.LocationDao
@@ -26,20 +26,27 @@ class GeocodingDomainRepository @Inject constructor(
         limit = criteria.limit,
         appId = configuration.openWeatherAppId(),
       )
+      .onErrorReturn { emptyList() }
       .map(mapper::mapDtoListToEntityList)
-      .flatMapCompletable(::saveLocations)
+      .flatMapCompletable(::replaceLocations)
       .subscribeOn(Schedulers.io())
 
-  private fun saveLocations(entities: List<LocationEntity>): Completable =
+  private fun replaceLocations(entities: List<LocationEntity>): Completable =
+    Completable
+      .concatArray(clearLocations(), insertLocations(entities))
+      .subscribeOn(Schedulers.io())
+
+  private fun clearLocations(): Completable =
+    dao.deleteAll()
+
+  private fun insertLocations(entities: List<LocationEntity>): Completable =
     Completable
       .fromAction { dao.insert(entities) }
       .subscribeOn(Schedulers.io())
 
-  override fun observeLocations(criteria: SearchCriteria): Flowable<List<Location>> =
-    when (criteria.limit) {
-      null -> dao.observeLocations(query = criteria.input)
-      else -> dao.observeLocations(query = criteria.input, limit = criteria.limit)
-    }
+  override fun observeLocations(): Flowable<List<Location>> =
+    dao
+      .observeLocations()
       .map(mapper::mapEntityListToDomainList)
       .subscribeOn(Schedulers.io())
 }

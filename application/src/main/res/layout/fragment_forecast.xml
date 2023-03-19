@@ -42,7 +42,7 @@
         android:padding="12dp">
 
         <include
-          android:id="@+id/view_rain"
+          android:id="@+id/rainView"
           layout="@layout/layout_forecast_rain"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
@@ -50,84 +50,82 @@
           android:layout_marginTop="0dp"
           android:layout_marginEnd="6dp"
           android:layout_marginBottom="6dp"
-          app:layout_constraintBottom_toTopOf="@+id/view_sun"
-          app:layout_constraintEnd_toStartOf="@+id/view_snow"
+          app:layout_constraintBottom_toTopOf="@+id/sunView"
+          app:layout_constraintEnd_toStartOf="@+id/snowView"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_snow"
+          android:id="@+id/snowView"
           layout="@layout/layout_forecast_snow"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="0dp"
           android:layout_marginStart="6dp"
-          android:layout_marginTop="0dp"
           android:layout_marginEnd="0dp"
-          android:layout_marginBottom="6dp"
-          app:layout_constraintBottom_toBottomOf="@+id/view_rain"
+          app:layout_constraintBottom_toBottomOf="@+id/rainView"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/view_rain"
-          app:layout_constraintTop_toTopOf="@+id/view_rain"
+          app:layout_constraintStart_toEndOf="@+id/rainView"
+          app:layout_constraintTop_toTopOf="@+id/rainView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_sun"
+          android:id="@+id/sunView"
           layout="@layout/layout_forecast_sun"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginVertical="6dp"
           android:layout_marginStart="0dp"
           android:layout_marginEnd="6dp"
-          app:layout_constraintBottom_toTopOf="@+id/view_wind"
-          app:layout_constraintEnd_toStartOf="@+id/view_pressure"
+          app:layout_constraintBottom_toTopOf="@+id/windView"
+          app:layout_constraintEnd_toStartOf="@+id/pressureView"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/view_rain"
+          app:layout_constraintTop_toBottomOf="@+id/rainView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_pressure"
+          android:id="@+id/pressureView"
           layout="@layout/layout_forecast_pressure"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
           android:layout_marginEnd="0dp"
-          app:layout_constraintBottom_toBottomOf="@+id/view_sun"
+          app:layout_constraintBottom_toBottomOf="@+id/sunView"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/view_sun"
-          app:layout_constraintTop_toTopOf="@+id/view_sun"
+          app:layout_constraintStart_toEndOf="@+id/sunView"
+          app:layout_constraintTop_toTopOf="@+id/sunView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_wind"
+          android:id="@+id/windView"
           layout="@layout/layout_forecast_wind"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginVertical="6dp"
           android:layout_marginStart="0dp"
           android:layout_marginEnd="6dp"
-          app:layout_constraintBottom_toTopOf="@+id/view_temperature"
-          app:layout_constraintEnd_toStartOf="@+id/view_visibility"
+          app:layout_constraintBottom_toTopOf="@+id/temperatureView"
+          app:layout_constraintEnd_toStartOf="@+id/visibilityView"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/view_sun"
+          app:layout_constraintTop_toBottomOf="@+id/sunView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_visibility"
+          android:id="@+id/visibilityView"
           layout="@layout/layout_forecast_visibility"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
           android:layout_marginEnd="0dp"
-          app:layout_constraintBottom_toBottomOf="@+id/view_wind"
+          app:layout_constraintBottom_toBottomOf="@+id/windView"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/view_wind"
-          app:layout_constraintTop_toTopOf="@+id/view_wind"
+          app:layout_constraintStart_toEndOf="@+id/windView"
+          app:layout_constraintTop_toTopOf="@+id/windView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_temperature"
+          android:id="@+id/temperatureView"
           layout="@layout/layout_forecast_temperature"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
@@ -136,22 +134,22 @@
           android:layout_marginEnd="6dp"
           android:layout_marginBottom="0dp"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/view_humidity"
+          app:layout_constraintEnd_toStartOf="@+id/humidityView"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/view_wind"
+          app:layout_constraintTop_toBottomOf="@+id/windView"
           app:state="@{viewModel.state}" />
 
         <include
-          android:id="@+id/view_humidity"
+          android:id="@+id/humidityView"
           layout="@layout/layout_forecast_humidity"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
           android:layout_marginEnd="0dp"
-          app:layout_constraintBottom_toBottomOf="@+id/view_temperature"
+          app:layout_constraintBottom_toBottomOf="@+id/temperatureView"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/view_temperature"
-          app:layout_constraintTop_toTopOf="@+id/view_temperature"
+          app:layout_constraintStart_toEndOf="@+id/temperatureView"
+          app:layout_constraintTop_toTopOf="@+id/temperatureView"
           app:state="@{viewModel.state}" />
 
       </androidx.constraintlayout.widget.ConstraintLayout>

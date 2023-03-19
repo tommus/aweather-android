@@ -6,7 +6,7 @@ import dev.windly.aweather.weather.persistence.model.CurrentWeatherEntity
 import dev.windly.aweather.weather.persistence.model.WeatherEntity
 
 @Database(
-  version = 6,
+  version = 1,
   exportSchema = false,
   entities = [
     CurrentWeatherEntity::class,

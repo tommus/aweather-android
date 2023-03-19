@@ -1,9 +1,9 @@
 package dev.windly.aweather.presentation.search
 
 import dev.windly.aweather.base.event.Event
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.domain.model.Location
 import dev.windly.aweather.presentation.forecast.ForecastFragment
+import dev.windly.aweather.recent.domain.model.Recent
 
 sealed class SearchEvent : Event {
 

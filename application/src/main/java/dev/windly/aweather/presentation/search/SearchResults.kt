@@ -1,17 +1,18 @@
 package dev.windly.aweather.presentation.search
 
-import dev.windly.aweather.geocoding.SearchCriteria
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.SearchLocationCriteria
+import dev.windly.aweather.location.domain.model.Location
+import dev.windly.aweather.recent.domain.model.Recent
 
 /**
  * Immutable data holder for the search results.
  *
- * Additionally it contains [SearchCriteria] so it's possible
+ * Additionally it contains [SearchLocationCriteria] so it's possible
  * for example to highlight the original search phrase.
  */
 data class SearchResults(
-  val criteria: SearchCriteria,
+  val criteria: SearchLocationCriteria,
+  val valid: Boolean,
   val locations: List<Location>,
   val recent: List<Recent>,
 ) {
@@ -22,7 +23,8 @@ data class SearchResults(
      * Empty search results.
      */
     val Empty = SearchResults(
-      criteria = SearchCriteria.Default,
+      criteria = SearchLocationCriteria.Default,
+      valid = false,
       locations = emptyList(),
       recent = emptyList(),
     )

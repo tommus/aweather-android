@@ -6,7 +6,7 @@ import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.listeners.ClickEventHook
 import dev.windly.aweather.base.viewbinding.asBinding
 import dev.windly.aweather.databinding.ItemSearchResultBinding
-import dev.windly.aweather.geocoding.domain.model.Location
+import dev.windly.aweather.location.domain.model.Location
 
 class ClickSearchResult(private val listener: Listener) :
   ClickEventHook<SearchResultItem>() {

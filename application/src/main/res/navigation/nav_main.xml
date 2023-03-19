@@ -5,7 +5,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_main"
-  app:startDestination="@id/search_fragment">
+  app:startDestination="@id/start_fragment">
 
   <fragment
     android:id="@+id/start_fragment"
@@ -13,30 +13,65 @@
     tools:layout="@layout/fragment_start">
 
     <action
-      android:id="@+id/actionSearch"
-      app:destination="@+id/search_fragment" />
+      android:id="@+id/actionFresh"
+      app:destination="@+id/nav_fresh"
+      app:popUpTo="@id/start_fragment"
+      app:popUpToInclusive="true" />
+
+    <action
+      android:id="@+id/actionVisited"
+      app:destination="@+id/nav_visited"
+      app:popUpTo="@id/start_fragment"
+      app:popUpToInclusive="true" />
 
   </fragment>
 
-  <fragment
-    android:id="@+id/search_fragment"
-    android:name="dev.windly.aweather.presentation.search.SearchFragment"
-    tools:layout="@layout/fragment_search">
+  <navigation
+    android:id="@+id/nav_fresh"
+    app:startDestination="@+id/search_fragment">
 
-    <action
-      android:id="@+id/actionForecast"
-      app:destination="@+id/forecast_fragment" />
+    <fragment
+      android:id="@+id/search_fragment"
+      android:name="dev.windly.aweather.presentation.search.SearchFragment"
+      tools:layout="@layout/fragment_search">
 
-  </fragment>
+      <action
+        android:id="@+id/actionForecast"
+        app:destination="@+id/forecast_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/search_fragment"
+        app:popUpToInclusive="true" />
 
-  <fragment
-    android:id="@+id/forecast_fragment"
-    android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
-    tools:layout="@layout/fragment_forecast">
+    </fragment>
 
-    <action
-      android:id="@+id/actionSearch"
-      app:destination="@+id/search_fragment" />
+    <fragment
+      android:id="@+id/forecast_fragment"
+      android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
+      tools:layout="@layout/fragment_forecast">
+
+      <action
+        android:id="@+id/actionSearch"
+        app:destination="@+id/search_fragment"
+        app:popUpTo="@+id/search_fragment"
+        app:popUpToInclusive="false" />
+
+      <argument
+        android:name="latitude"
+        app:argType="float"
+        app:nullable="false" />
+
+      <argument
+        android:name="longitude"
+        app:argType="float"
+        app:nullable="false" />
+
+    </fragment>
+
+  </navigation>
+
+  <navigation
+    android:id="@+id/nav_visited"
+    app:startDestination="@+id/forecast_fragment">
 
     <argument
       android:name="latitude"
@@ -48,6 +83,44 @@
       app:argType="float"
       app:nullable="false" />
 
-  </fragment>
+    <fragment
+      android:id="@+id/forecast_fragment"
+      android:name="dev.windly.aweather.presentation.forecast.ForecastFragment"
+      tools:layout="@layout/fragment_forecast">
+
+      <action
+        android:id="@+id/actionSearch"
+        app:destination="@+id/search_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/search_fragment"
+        app:popUpToInclusive="false" />
+
+      <argument
+        android:name="latitude"
+        app:argType="float"
+        app:nullable="false" />
+
+      <argument
+        android:name="longitude"
+        app:argType="float"
+        app:nullable="false" />
+
+    </fragment>
+
+    <fragment
+      android:id="@+id/search_fragment"
+      android:name="dev.windly.aweather.presentation.search.SearchFragment"
+      tools:layout="@layout/fragment_search">
+
+      <action
+        android:id="@+id/actionForecast"
+        app:destination="@+id/forecast_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/forecast_fragment"
+        app:popUpToInclusive="true" />
+
+    </fragment>
+
+  </navigation>
 
 </navigation>

@@ -4,6 +4,7 @@
 
   <eat-comment />
 
+  <item name="itemPlacholder" type="id" />
   <item name="itemRecent" type="id" />
   <item name="itemRecentHeader" type="id" />
   <item name="itemSearchHeader" type="id" />

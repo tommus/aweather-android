@@ -36,6 +36,30 @@
     <item name="fontFamily">@font/chakra_petch</item>
   </style>
 
+  <style name="Aweather.Placeholder" />
+
+  <style name="Aweather.Placeholder.Icon">
+    <item name="android:minWidth">64dp</item>
+    <item name="android:minHeight">64dp</item>
+    <item name="drawableTint">@android:color/white</item>
+  </style>
+
+  <style name="Aweather.Placeholder.Title">
+    <item name="android:fontFamily">@font/russo</item>
+    <item name="fontFamily">@font/russo</item>
+  </style>
+
+  <style name="Aweather.Placeholder.Prompt">
+    <item name="android:fontFamily">@font/chakra_petch</item>
+    <item name="android:fontWeight" tools:targetApi="o">600</item>
+    <item name="android:lineHeight" tools:targetApi="p">20sp</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textColor">@color/manatee</item>
+    <item name="fontFamily">@font/chakra_petch</item>
+    <item name="fontWeight">600</item>
+    <item name="lineHeight">20sp</item>
+  </style>
+
   <style name="Aweather.Recent" />
 
   <style name="Aweather.Recent.Decor">

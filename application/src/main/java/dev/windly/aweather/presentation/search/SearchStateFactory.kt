@@ -12,6 +12,7 @@ class SearchStateFactory @Inject constructor() {
   ): SearchState =
     SearchState(
       input = input,
+      valid = results.valid,
       recent = results.recent,
       results = results.locations,
     )

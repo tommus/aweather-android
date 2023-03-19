@@ -1,10 +1,12 @@
 package dev.windly.aweather.presentation.search
 
 import dagger.hilt.android.scopes.ViewModelScoped
-import dev.windly.aweather.geocoding.GeocodingRepository
-import dev.windly.aweather.geocoding.SearchCriteria
-import dev.windly.aweather.geocoding.domain.model.Location
-import dev.windly.aweather.geocoding.domain.model.Recent
+import dev.windly.aweather.location.LocationRepository
+import dev.windly.aweather.location.SearchLocationCriteria
+import dev.windly.aweather.location.domain.model.Location
+import dev.windly.aweather.recent.RecentRepository
+import dev.windly.aweather.recent.SearchRecentCriteria
+import dev.windly.aweather.recent.domain.model.Recent
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.FlowableProcessor
@@ -14,7 +16,9 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class SearchLocation @Inject constructor(
-  private val search: GeocodingRepository
+  private val location: LocationRepository,
+  private val recent: RecentRepository,
+  private val validator: SearchInputValidator,
 ) {
 
   private companion object {
@@ -34,6 +38,10 @@ class SearchLocation @Inject constructor(
   private val input: FlowableProcessor<String> =
     BehaviorProcessor.createDefault(QUERY)
 
+
+  private val valid: Flowable<Boolean> =
+    input.map(validator::test)
+
   /**
    * Accepts new search input [value].
    */
@@ -44,46 +52,59 @@ class SearchLocation @Inject constructor(
   /**
    * Emits a raw [input] whenever user decides to change it.
    */
-  fun input(): Flowable<String> =
-    input.hide()
+  fun input(): Flowable<String> = input.hide()
 
   /**
-   * Emits new [SearchCriteria] whenever condition changes.
+   * Delivers an information whether the entered input is considered
+   * a valid location name.
    */
-  private fun criteria(): Flowable<SearchCriteria> =
-    input.map(::SearchCriteria).debounce(DELAY, MILLISECONDS)
+  private fun valid(): Flowable<Boolean> = valid.hide()
+
+  /**
+   * Emits new [SearchLocationCriteria] whenever condition changes.
+   */
+  private fun locationCriteria(): Flowable<SearchLocationCriteria> =
+    input.map(::SearchLocationCriteria).debounce(DELAY, MILLISECONDS)
 
   /**
    * Searches for the locations that matches the search criteria.
    */
-  private fun searchLocations(criteria: SearchCriteria): Flowable<List<Location>> =
-    search.downloadLocations(criteria)
-      .andThen(search.observeLocations())
+  private fun searchLocations(criteria: SearchLocationCriteria): Flowable<List<Location>> =
+    location.download(criteria)
+      .andThen(location.observe())
 
   /**
    * Searches for all the results that matches the search criteria.
    */
   private fun locations(): Flowable<List<Location>> =
-    criteria().switchMap(::searchLocations)
+    locationCriteria().switchMap(::searchLocations)
+
+  private fun recentCriteria(): Flowable<SearchRecentCriteria> =
+    input.map(::SearchRecentCriteria).debounce(DELAY, MILLISECONDS)
 
   /**
    * Searches for the recent locations that matches the search criteria.
    */
-  private fun searchRecent(criteria: SearchCriteria): Flowable<List<Recent>> =
-    search.observeLastFiveRecent(criteria)
+  private fun searchRecent(criteria: SearchRecentCriteria): Flowable<List<Recent>> =
+    recent.observeLastFive(criteria)
 
   /**
    * Searches for the last five recent locations that matches the
    * search input.
    */
   private fun recent(): Flowable<List<Recent>> =
-    criteria().switchMap(::searchRecent)
+    recentCriteria().switchMap(::searchRecent)
 
   /**
-   * Emits a filtered [SearchResults] for the provided [SearchCriteria].
+   * Emits a filtered [SearchResults] for the provided [SearchLocationCriteria].
    */
   fun results(): Flowable<SearchResults> =
     Flowable
-      .combineLatest(criteria(), locations(), recent(), ::SearchResults)
-      .subscribeOn(Schedulers.computation())
+      .combineLatest(
+        locationCriteria(),
+        valid(),
+        locations(),
+        recent(),
+        ::SearchResults
+      ).subscribeOn(Schedulers.computation())
 }

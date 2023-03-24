@@ -1,5 +1,7 @@
-package dev.windly.aweather.weather
+package dev.windly.aweather.weather.utility
 
+import dev.windly.aweather.weather.MeasurementUnit
+import dev.windly.aweather.weather.SearchCriteria
 import dev.windly.aweather.weather.domain.model.Coord
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
@@ -9,7 +11,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class TrimmedCoordinates @Inject constructor() {
+class TrimmedCoordinates @Inject constructor(
+  private val language: LocaleLanguage
+) {
 
   private companion object {
 
@@ -60,7 +64,7 @@ class TrimmedCoordinates @Inject constructor() {
     SearchCriteria(
       latitude = latitude,
       longitude = longitude,
-      language = MeasurementLang.POLISH,
+      language = language.forMeasurements(),
       units = MeasurementUnit.METRIC,
     )
 }

@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.windly.aweather.android.reactivex.CompletableProgress
-import dev.windly.aweather.weather.MeasurementLang
 import dev.windly.aweather.weather.MeasurementUnit
 import dev.windly.aweather.weather.SearchCriteria
 import dev.windly.aweather.weather.WeatherRepository
 import dev.windly.aweather.weather.domain.model.CurrentWeather
+import dev.windly.aweather.weather.utility.LocaleLanguage
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -29,6 +29,7 @@ class ForecastViewModel @Inject constructor(
   private val arguments: ForecastArguments,
   private val factory: ForecastStateFactory,
   private val forecast: ForecastWeather,
+  private val language: LocaleLanguage,
   private val repository: WeatherRepository,
 ) : ViewModel(), DefaultLifecycleObserver {
 
@@ -88,7 +89,7 @@ class ForecastViewModel @Inject constructor(
     SearchCriteria(
       latitude = arguments.requireLatitude(),
       longitude = arguments.requireLongitude(),
-      language = MeasurementLang.POLISH,
+      language = language.forMeasurements(),
       units = MeasurementUnit.METRIC,
     )
 

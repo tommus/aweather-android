@@ -2,7 +2,7 @@ package dev.windly.aweather.weather.domain
 
 import dev.windly.aweather.configuration.Configuration
 import dev.windly.aweather.weather.SearchCriteria
-import dev.windly.aweather.weather.TrimmedCoordinates
+import dev.windly.aweather.weather.utility.TrimmedCoordinates
 import dev.windly.aweather.weather.WeatherRepository
 import dev.windly.aweather.weather.domain.mapper.ForecastMapper
 import dev.windly.aweather.weather.domain.model.CurrentWeather

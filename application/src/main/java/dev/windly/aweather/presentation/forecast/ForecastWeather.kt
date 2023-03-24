@@ -1,7 +1,7 @@
 package dev.windly.aweather.presentation.forecast
 
 import dagger.hilt.android.scopes.ViewModelScoped
-import dev.windly.aweather.weather.TrimmedCoordinates
+import dev.windly.aweather.weather.utility.TrimmedCoordinates
 import dev.windly.aweather.weather.WeatherRepository
 import dev.windly.aweather.weather.domain.model.CurrentWeather
 import io.reactivex.rxjava3.core.Flowable

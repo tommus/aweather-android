@@ -30,6 +30,18 @@ This particular Android project consists of the following modules:
     layer.
 11. **resources** - contains all the reusable Android resources.
 
+## Open Weather API
+
+This application integrates with Open Weather API. In order to work properly,
+it is necessary to generate Open Weather API key that allows to authenticate
+the client in a service.
+
+More details can be found in the [How to start](https://openweathermap.org/appid)
+document.
+
+Once generated, head to the `configuration` module and fill the
+`gradle.properties` as it is showcased in a `gradle.properties.sample`.
+
 ## Build Types
 
 There are two different build types:

@@ -14,6 +14,8 @@ gen/
 out/
 
 # Gradle files
+gradle.properties
+!/gradle.properties
 .gradle/
 build/
 

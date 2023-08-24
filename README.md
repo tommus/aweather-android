@@ -1,89 +1,84 @@
-# Aweather
+# Aweather :sunny: :cloud:
 
-A simple Android mobile client that uses Open Weather API as a source of
-weather forecast.
+A simple Android mobile client that utilizes the Open Weather API as a source of
+weather forecasts.
 
-## Compatibility
+## Compatibility :iphone:
 
-This application targets Android (6.0) Marshmallow and newer.
+This application is designed for Android 6.0 (Marshmallow) and newer versions.
 
-## Project Modules
+## Project Modules :file_folder:
 
-This particular Android project consists of the following modules:
+This Android project is structured into the following modules:
 
-1. **application** - produces Aweather executable application.
-2. **base:android** - implements utility features to boost Android application
+1. **application** - Generates the Aweather executable application.
+2. **base:android** - Implements utility features to enhance Android app
    development.
-3. **base:language** - provides additional features for the Kotlin programming
+3. **base:language** - Provides additional features for the Kotlin programming
    language.
-4. **base:mvvm** - implements base classes for MVVM architectural pattern and
-   data binding.
-5. **common:network** - contains an implementation of shared networking features
-   such as url interception, SSL handling, exceptions and more.
-6. **common:persistence** - a module prepared for cache, storage or database
-   shared functionalities (at the moment remains empty).
-7. **configuration** - parses the `gradle.properties` and provides injectable
+4. **base:mvvm** - Implements base classes for the MVVM architectural pattern
+   and data binding.
+5. **common:network** - Contains shared networking features like URL
+   interception, SSL handling, and more.
+6. **common:persistence** - Prepared for cache, storage, or database shared
+   functionalities (currently empty).
+7. **configuration** - Parses `gradle.properties` and provides injectable
    configuration.
-8. **feature:location** - implements Open Weather - Geocoding integration layer.
-9. **feature:recent** - implements really simple search history.
-10. **feature:weather** - implements Open Weather - Current Weather integration
+8. **feature:location** - Implements Open Weather - Geocoding integration layer.
+9. **feature:recent** - Implements simple search history functionality.
+10. **feature:weather** - Implements Open Weather - Current Weather integration
     layer.
-11. **resources** - contains all the reusable Android resources.
+11. **resources** - Contains all reusable Android resources.
 
-## Open Weather API
+## Open Weather API :earth_americas:
 
-This application integrates with Open Weather API. In order to work properly,
-it is necessary to generate Open Weather API key that allows to authenticate
-the client in a service.
+This application integrates with the Open Weather API. To function correctly,
+you need to generate an Open Weather API key for client authentication.
 
-More details can be found in the [How to start](https://openweathermap.org/appid)
-document.
+For more details, refer to the [How to Start](https://openweathermap.org/appid)
+guide.
 
-Once generated, head to the `configuration` module and fill the
-`gradle.properties` as it is showcased in a `gradle.properties.sample`.
+After generating the API key, navigate to the `configuration` module and fill in
+the `gradle.properties` as demonstrated in `gradle.properties.sample`.
 
-## Build Types
+## Build Types :hammer:
 
-There are two different build types:
+Two build types are available:
 
-- `debug` - build type with enabled all development tools,
-- `release` - build type with disabled all development tools.
+- `debug` - Enables all development tools.
+- `release` - Disables all development tools.
 
-## Documentation and configuration
+## Documentation and Configuration :page_facing_up:
 
-Do not hesitate to consult `settings` directory. You can find there such
-directories as:
+Check the `settings` directory for additional information, including:
 
-- `distribute` - contains Firebase App Distribution configuration.
-- `keystore` - with signing configuration details,
+- `distribute` - Contains Firebase App Distribution configuration.
+- `keystore` - Signing configuration details.
 
-## Building production
+## Building for Production :construction_worker:
 
-Before building production ensure to:
+Before building for production:
 
-- change build type to `release`.
+- Change the build type to `release`.
 
-This build type uses production configuration files. These files introduces
+The `release` build type uses production configuration files that introduce
 crucial changes:
 
-- defines proper server connection details (uris, etc.),
-- disables development tools,
-- configures network requests log level.
+- Define proper server connection details (URIs, etc.).
+- Disable development tools.
+- Configure network request log level.
 
-## Gradle properties
+## Gradle Properties :gear:
 
-There are available options that can be configured
-in `configuration\gradle.properties` file.
+You can configure several options in the `configuration\gradle.properties` file:
 
 Build type server-related options:
 
-- `OpenWeatherApiUrl<build-type>` - allows to configure server uri.
-- `OpenWeatherApiId<build-type>` - allows to configure API key.
+- `OpenWeatherApiUrl<build-type>` - Configure server URI.
+- `OpenWeatherApiId<build-type>` - Configure API key.
 
-> Note that you can find `gradle.properties.sample` file in application modules.
-> If you would like to use default values, just copy this file and paste it as
-> `gradle.properties`.
+> Note: Find the `gradle.properties.sample` file in application modules. For
+> default values, copy and rename this file to `gradle.properties`.
 
-After preparing `gradle.properties` file you have to synchronize your Gradle
-build. This allows to generate `BuildConfig` class with required constant
-variables.
+After preparing the `gradle.properties` file, sync your Gradle build to generate
+the required `BuildConfig` class with constant variables.
